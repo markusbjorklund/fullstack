@@ -1,11 +1,12 @@
-# Part 0
+## Part 0
 
-## Tasks
-- [] 0.4
-- [] 0.5
-- [] 0.6
+### Tasks
 
-### 0.4 New note
+- [ ] 0.4
+- [ ] 0.5
+- [ ] 0.6
+
+#### 0.4 New note
 
 ```
 browser->server: HTTP POST https://studies.cs.helsinki.fi/exampleapp/new_note
@@ -34,7 +35,7 @@ browser->server: HTTP GET https://studies.cs.helsinki.fi/favicon.ico
 server-->browser: favicon.ico
 ```
 
-### 0.5 Single page app
+#### 0.5 Single page app
 
 ```
 browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/spa
@@ -57,7 +58,7 @@ browser->server: HTTP GET https://studies.cs.helsinki.fi/favicon.ico
 server-->browser: favicon.ico
 ```
 
-### 0.6 New note
+#### 0.6 New note
 
 ```
 browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/spa
