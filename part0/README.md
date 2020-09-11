@@ -61,25 +61,15 @@ server-->browser: favicon.ico
 #### 0.6 New note
 
 ```
-browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/spa
-server-->browser: HTML-code
-browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/main.css
-server-->browser: main.css
-browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/spa.js
-server-->browser: spa.js
-
-browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/data.json
-server-->browser: [{ content: "HTML is easy", date: "2019-05-23" }, ...]
-browser->server: HTTP GET https://studies.cs.helsinki.fi/favicon.ico
-server-->browser: favicon.ico
-
 note over browser
-The POST request to the address new_note_spa 
-contains the new note as JSON-data containing 
-both the content of the note (content) and
-the timestamp (date)
+... we make a POST request to new_note_spa 
+that contains the new note as JSON-data 
+with content and date.
 end note
 
 browser->server: HTTP POST https://studies.cs.helsinki.fi/exampleapp/new_note_spa
+note right of browser
+PAYLOAD {content: "this is a new test note", date: "2020-09-11T07:12:55.273Z"}
+end note
 server-->browser: 201 Created
 ```
