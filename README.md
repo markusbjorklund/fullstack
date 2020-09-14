@@ -1,6 +1,6 @@
 ## Full Stack Web Development
 
-This is my tasklist for the Full stack course for Centrias "Road to Software Engineering". 
+This is my tasklist for the Full stack open 2020. This is part of Centrias "Road to Software Engineering". 
 
 Deadline is <b>6.12.2020</b>.
 
