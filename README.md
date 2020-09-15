@@ -1,4 +1,4 @@
-## Full Stack Web Development
+# Full Stack Web Development
 
 This is my tasklist for the Full stack open 2020. This is part of Centrias "Road to Software Engineering". 
 
@@ -6,7 +6,7 @@ The course consist of a total of 10 parts. Part 1-8 needs to be completed before
 
 Deadline is <b>6.12.2020</b>.
 
-### Part 0
+## Part 0
 
 #### Fundamentals of Web apps
 
@@ -19,7 +19,7 @@ https://fullstackopen.com/en/part0/
 - [x] 0.5
 - [x] 0.6
 
-### Part 1
+## Part 1
 
 #### Introduction to React
 
@@ -42,7 +42,7 @@ https://fullstackopen.com/en/part1
 - [ ] 1.15
 - [ ] 1.16
 
-### Part 2
+## Part 2
 
 #### Communicating with server
 
