@@ -8,7 +8,7 @@ Deadline is <b>6.12.2020</b>.
 
 ### Part 0
 
-##### Fundamentals of Web apps
+#### Fundamentals of Web apps
 
 https://fullstackopen.com/en/part0/
 
@@ -21,7 +21,7 @@ https://fullstackopen.com/en/part0/
 
 ### Part 1
 
-##### Introduction to React
+#### Introduction to React
 
 https://fullstackopen.com/en/part1
 
@@ -44,7 +44,7 @@ https://fullstackopen.com/en/part1
 
 ### Part 2
 
-##### Communicating with server
+#### Communicating with server
 
 https://fullstackopen.com/en/part2
 
