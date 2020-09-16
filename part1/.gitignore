@@ -1,4 +1,6 @@
+# own additions to this file
 .DS_Store
+.json
 
 # Logs
 logs
