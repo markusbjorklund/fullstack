@@ -1,42 +1,39 @@
 import React, { useState } from 'react'
 import ReactDOM from 'react-dom'
 
+const Button = (props) => {
+  return (
+    <button onClick={props.handleKlick}>
+      {props.text}
+    </button>
+  )
+}
+
+const Display = ({ stats }) => {
+  return (
+    <><p>{stats}</p></>
+  )
+}
+
 const App = () => {
-  // save clicks of each button to own state
   const [good, setGood] = useState(0)
   const [neutral, setNeutral] = useState(0)
   const [bad, setBad] = useState(0)
 
-  const all = good + neutral + bad
+  const increaseGood = () => setGood(good + 1)
+  const increaseNeutral = () => setNeutral(neutral + 1)
+  const increaseBad = () => setBad(bad + 1)
 
-  const average = () => {
-    if (all === 0) {
-      return 0
-    }
-    return (good - bad) / all
-  }
-
-  const positive = () => {
-    if (all === 0) {
-      return 0
-    }
-    return good / all  * 100
-  }
-
-  // need to make this more pretty and less hardcoded
   return (
     <>
       <h1>give feedback</h1>
-      <button onClick={() => setGood(good + 1)}>good</button>
-      <button onClick={() => setNeutral(neutral + 1)}>neutral</button>
-      <button onClick={() => setBad(bad + 1)}>bad</button>
+      <Button handleKlick={increaseGood} text='good' />
+      <Button handleKlick={increaseNeutral} text='neutral' />
+      <Button handleKlick={increaseBad} text='bad' />
       <h1>statistics</h1>
-      <p>good {good}</p>
-      <p>neutral {neutral}</p>
-      <p>bad {bad}</p>
-      <p>all {all}</p>
-      <p>average {average()}</p>
-      <p>positive {positive()} %</p>
+      <Display stats={"good " + good} />
+      <Display stats={"neutral " + neutral} />
+      <Display stats={"bad " + bad} />
     </>
   )
 }
