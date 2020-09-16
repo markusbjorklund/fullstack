@@ -1,47 +1,29 @@
 import React, { useState } from 'react'
 import ReactDOM from 'react-dom'
 
-const Button = (props) => {
-  return (
-    <button onClick={props.handleClick}>
-      {props.text}
-    </button>
-  )
-}
-
-const Display = (props) => {
-  return (
-    <div>{props.counter}</div>
-  )
-}
-
 const App = () => {
-  const [counter, setCounter] = useState(0)
-
-  const increaseByOne = () => setCounter(counter + 1)
-  const decreaseByOne = () => setCounter(counter - 1)
-  const setToZero = () => setCounter(0)
+  // save clicks of each button to own state
+  const [good, setGood] = useState(0)
+  const [neutral, setNeutral] = useState(0)
+  const [bad, setBad] = useState(0)
 
   return (
-    <div>
-      <Display counter={counter} />
-      <Button
-        handleClick={increaseByOne}
-        text='plus'
-      />
-      <Button
-        handleClick={setToZero}
-        text='zero'
-      />
-      <Button
-        handleClick={decreaseByOne}
-        text='minus'
-      />
-    </div>
+    <>
+      <h1>give feedback</h1>
+      <button onClick={() => setGood(good + 1)}>good</button>
+      <button onClick={() => setNeutral(neutral + 1)}>neutral</button>
+      <button onClick={() => setBad(bad + 1)}>bad</button>
+      <h1>statistics</h1>
+      <p>good {good}</p>
+      <p>neutral {neutral}</p>
+      <p>bad {bad}</p>
+      <p>all {good - bad}</p>
+      <p>average {(good + neutral + bad) / 3}</p>
+      <p>positive {(good - bad) / good * 100} %</p>
+    </>
   )
 }
 
-ReactDOM.render(
-  <App />,
+ReactDOM.render(<App />,
   document.getElementById('root')
 )
