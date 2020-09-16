@@ -30,7 +30,7 @@ https://fullstackopen.com/en/part1
 - [x] 1.3
 - [x] 1.4
 - [x] 1.5
-- [ ] 1.6
+- [x] 1.6
 - [ ] 1.7
 - [ ] 1.8
 - [ ] 1.9
