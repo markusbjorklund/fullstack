@@ -39,8 +39,6 @@ https://fullstackopen.com/en/part1
 - [ ] 1.12
 - [ ] 1.13
 - [ ] 1.14
-- [ ] 1.15
-- [ ] 1.16
 
 ## Part 2
 
