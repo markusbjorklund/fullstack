@@ -15,15 +15,20 @@ const Display = ({ stats }) => {
   )
 }
 
-const Statistics = ({good, neutral, bad, all, average, positive}) => {
+const Statistics = ({ good, neutral, bad, all, average, positive }) => {
+  if (all === 0) {
+    return (
+      <><p>No feedback given</p></>
+    )
+  }
   return (
     <>
-    <Display stats={"good " + good} />
-    <Display stats={"neutral " + neutral} />
-    <Display stats={"bad " + bad} />
-    <Display stats={"all " + all} />
-    <Display stats={"average " + average()} />
-    <Display stats={"positive " + positive() + "%"} />
+      <Display stats={"good " + good} />
+      <Display stats={"neutral " + neutral} />
+      <Display stats={"bad " + bad} />
+      <Display stats={"all " + all} />
+      <Display stats={"average " + average()} />
+      <Display stats={"positive " + positive() + "%"} />
     </>
   )
 }
