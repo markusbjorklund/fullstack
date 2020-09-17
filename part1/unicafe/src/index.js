@@ -15,6 +15,20 @@ const Display = ({ stats }) => {
   )
 }
 
+const Statistics = (props) => {
+  const {good, neutral, bad, all, average, positive} = props
+  return (
+    <>
+    <Display stats={"good " + good} />
+    <Display stats={"neutral " + neutral} />
+    <Display stats={"bad " + bad} />
+    <Display stats={"all " + all} />
+    <Display stats={"average " + average()} />
+    <Display stats={"positive " + positive() + "%"} />
+    </>
+  )
+}
+
 const App = () => {
   const [good, setGood] = useState(0)
   const [neutral, setNeutral] = useState(0)
@@ -47,12 +61,7 @@ const App = () => {
       <Button handleKlick={increaseNeutral} text='neutral' />
       <Button handleKlick={increaseBad} text='bad' />
       <h1>statistics</h1>
-      <Display stats={"good " + good} />
-      <Display stats={"neutral " + neutral} />
-      <Display stats={"bad " + bad} />
-      <Display stats={"all " + all} />
-      <Display stats={"average " + average()} />
-      <Display stats={"positive " + positive()} />
+      <Statistics good={good} neutral={neutral} bad={bad} all={all} average={average} positive={positive} />
     </>
   )
 }
