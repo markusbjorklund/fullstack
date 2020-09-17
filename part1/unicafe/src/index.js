@@ -15,8 +15,7 @@ const Display = ({ stats }) => {
   )
 }
 
-const Statistics = (props) => {
-  const {good, neutral, bad, all, average, positive} = props
+const Statistics = ({good, neutral, bad, all, average, positive}) => {
   return (
     <>
     <Display stats={"good " + good} />
