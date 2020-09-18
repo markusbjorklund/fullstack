@@ -1,34 +1,41 @@
 import React, { useState } from 'react'
 import ReactDOM from 'react-dom'
 
-const Button = (props) => {
+const Button = ({ handleKlick, text }) => {
   return (
-    <button onClick={props.handleKlick}>
-      {props.text}
+    <button onClick={handleKlick}>
+      {text}
     </button>
   )
 }
 
-const Display = ({ stats }) => {
+const Buttons = ({ increaseGood, increaseNeutral, increaseBad }) => {
   return (
-    <><p>{stats}</p></>
+    <>
+      <Button handleKlick={increaseGood} text='good' />
+      <Button handleKlick={increaseNeutral} text='neutral' />
+      <Button handleKlick={increaseBad} text='bad' />
+    </>
   )
 }
 
-const Statistics = ({ good, neutral, bad, all, average, positive }) => {
-  if (all === 0) {
-    return (
-      <><p>No feedback given</p></>
-    )
-  }
+const Statistic = (props) => {
   return (
     <>
-      <Display stats={"good " + good} />
-      <Display stats={"neutral " + neutral} />
-      <Display stats={"bad " + bad} />
-      <Display stats={"all " + all} />
-      <Display stats={"average " + average()} />
-      <Display stats={"positive " + positive() + "%"} />
+      <p>{props.text} {props.value}</p>
+    </>
+  )
+}
+
+const Statistics = ({ text, good, neutral, bad, all, average, positive }) => {
+  return (
+    <>
+      <Statistic text='good' value={good} />
+      <Statistic text='neutral' value={neutral} />
+      <Statistic text='bad' value={bad} />
+      <Statistic text='all' value={all} />
+      <Statistic text='average' value={average} />
+      <Statistic text='positive' value={positive} />
     </>
   )
 }
@@ -58,14 +65,22 @@ const App = () => {
     return good / all * 100
   }
 
+  if (all === 0) {
+    return (
+      <>
+        <h1>give feedback</h1>
+        <Buttons increaseGood={increaseGood} increaseNeutral={increaseNeutral} increaseBad={increaseBad} />
+        <h1>statistics</h1>
+        <p>No feedback given</p>
+      </>
+    )
+  }
   return (
     <>
       <h1>give feedback</h1>
-      <Button handleKlick={increaseGood} text='good' />
-      <Button handleKlick={increaseNeutral} text='neutral' />
-      <Button handleKlick={increaseBad} text='bad' />
+      <Buttons increaseGood={increaseGood} increaseNeutral={increaseNeutral} increaseBad={increaseBad} />
       <h1>statistics</h1>
-      <Statistics good={good} neutral={neutral} bad={bad} all={all} average={average} positive={positive} />
+      <Statistics good={good} neutral={neutral} bad={bad} all={all} average={average()} positive={positive()} />
     </>
   )
 }
