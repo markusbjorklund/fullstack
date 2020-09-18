@@ -35,7 +35,7 @@ const Header = () => {
   )
 }
 
-const Statistics = ({ text, good, neutral, bad, all, average, positive }) => {
+const Statistics = ({ good, neutral, bad, all, average, positive }) => {
   if (all === 0) {
     return (
       <>
