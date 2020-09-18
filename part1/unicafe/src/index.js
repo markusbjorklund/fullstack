@@ -62,7 +62,7 @@ const App = () => {
     if (all === 0) {
       return 0
     }
-    return good / all * 100
+    return good / all * 100 + ' %'
   }
 
   if (all === 0) {
