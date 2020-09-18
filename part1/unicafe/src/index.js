@@ -22,7 +22,7 @@ const Buttons = ({ increaseGood, increaseNeutral, increaseBad }) => {
 const Statistic = (props) => {
   return (
     <>
-      <p>{props.text} {props.value}</p>
+      <td>{props.text}</td><td>{props.value}</td>
     </>
   )
 }
@@ -30,12 +30,12 @@ const Statistic = (props) => {
 const Statistics = ({ text, good, neutral, bad, all, average, positive }) => {
   return (
     <>
-      <Statistic text='good' value={good} />
-      <Statistic text='neutral' value={neutral} />
-      <Statistic text='bad' value={bad} />
-      <Statistic text='all' value={all} />
-      <Statistic text='average' value={average} />
-      <Statistic text='positive' value={positive} />
+      <tr><Statistic text='good' value={good} /></tr>
+      <tr><Statistic text='neutral' value={neutral} /></tr>
+      <tr><Statistic text='bad' value={bad} /></tr>
+      <tr><Statistic text='all' value={all} /></tr>
+      <tr><Statistic text='average' value={average} /></tr>
+      <tr><Statistic text='positive' value={positive} /></tr>
     </>
   )
 }
@@ -80,7 +80,11 @@ const App = () => {
       <h1>give feedback</h1>
       <Buttons increaseGood={increaseGood} increaseNeutral={increaseNeutral} increaseBad={increaseBad} />
       <h1>statistics</h1>
-      <Statistics good={good} neutral={neutral} bad={bad} all={all} average={average()} positive={positive()} />
+      <table>
+        <tbody>
+          <Statistics good={good} neutral={neutral} bad={bad} all={all} average={average()} positive={positive()} />
+        </tbody>
+      </table>
     </>
   )
 }
