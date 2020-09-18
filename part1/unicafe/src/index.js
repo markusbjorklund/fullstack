@@ -27,15 +27,33 @@ const Statistic = (props) => {
   )
 }
 
-const Statistics = ({ text, good, neutral, bad, all, average, positive }) => {
+const Header = () => {
   return (
     <>
-      <tr><Statistic text='good' value={good} /></tr>
-      <tr><Statistic text='neutral' value={neutral} /></tr>
-      <tr><Statistic text='bad' value={bad} /></tr>
-      <tr><Statistic text='all' value={all} /></tr>
-      <tr><Statistic text='average' value={average} /></tr>
-      <tr><Statistic text='positive' value={positive} /></tr>
+      <h1>feedback</h1>
+    </>
+  )
+}
+const Statistics = ({ text, good, neutral, bad, all, average, positive }) => {
+  if (all === 0) {
+    return (
+      <>
+        <h1>statistics</h1>
+        <p>No feedback given</p>
+      </>
+    )
+  }
+  return (
+    <>
+      <h1>statistics</h1>
+      <table><tbody>
+        <tr><Statistic text='good' value={good} /></tr>
+        <tr><Statistic text='neutral' value={neutral} /></tr>
+        <tr><Statistic text='bad' value={bad} /></tr>
+        <tr><Statistic text='all' value={all} /></tr>
+        <tr><Statistic text='average' value={average} /></tr>
+        <tr><Statistic text='positive' value={positive} /></tr>
+      </tbody></table>
     </>
   )
 }
@@ -64,27 +82,12 @@ const App = () => {
     }
     return good / all * 100 + ' %'
   }
-
-  if (all === 0) {
-    return (
-      <>
-        <h1>give feedback</h1>
-        <Buttons increaseGood={increaseGood} increaseNeutral={increaseNeutral} increaseBad={increaseBad} />
-        <h1>statistics</h1>
-        <p>No feedback given</p>
-      </>
-    )
-  }
+  
   return (
     <>
-      <h1>give feedback</h1>
+      <Header />
       <Buttons increaseGood={increaseGood} increaseNeutral={increaseNeutral} increaseBad={increaseBad} />
-      <h1>statistics</h1>
-      <table>
-        <tbody>
-          <Statistics good={good} neutral={neutral} bad={bad} all={all} average={average()} positive={positive()} />
-        </tbody>
-      </table>
+      <Statistics good={good} neutral={neutral} bad={bad} all={all} average={average()} positive={positive()} />
     </>
   )
 }
