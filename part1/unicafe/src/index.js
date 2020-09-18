@@ -19,10 +19,10 @@ const Buttons = ({ increaseGood, increaseNeutral, increaseBad }) => {
   )
 }
 
-const Statistic = (props) => {
+const Statistic = ({text, value}) => {
   return (
     <>
-      <td>{props.text}</td><td>{props.value}</td>
+      <td>{text}</td><td>{value}</td>
     </>
   )
 }
@@ -34,6 +34,7 @@ const Header = () => {
     </>
   )
 }
+
 const Statistics = ({ text, good, neutral, bad, all, average, positive }) => {
   if (all === 0) {
     return (
@@ -82,7 +83,7 @@ const App = () => {
     }
     return good / all * 100 + ' %'
   }
-  
+
   return (
     <>
       <Header />
