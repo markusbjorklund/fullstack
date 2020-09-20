@@ -1,6 +1,12 @@
 import React, { useState } from 'react'
 import ReactDOM from 'react-dom'
 
+const Header = ({ text }) => {
+  return (
+    <h1>{text}</h1>
+  )
+}
+
 const Button = ({ handleKlick, text }) => {
   return (
 <<<<<<< HEAD
@@ -8,6 +14,15 @@ const Button = ({ handleKlick, text }) => {
 =======
     <button onClick={handleKlick}>{text}</button>
 >>>>>>> 517c20d... redid 1.12
+  )
+}
+
+const Anecdote = ({ text, votes }) => {
+  return (
+    <>
+    <p>{text}</p>
+    <p>has {votes} votes</p>
+    </>
   )
 }
 
@@ -28,13 +43,18 @@ const App = (props) => {
 
   const voteAnecdote = () => { setVote(countVoteCopy) }
 
+  // handle max votes
+  const popularAnecdote = countVote.indexOf(Math.max.apply(null, countVote))
+
   return (
-    <div>
-      <p>{props.anecdotes[selected]}</p>
-      <p>has {countVote[selected]} votes</p>
+    <>
+      <Header text="Anecdote of the day" />
+      <Anecdote text={anecdotes[selected]} votes={countVote[selected]} />
       <Button handleKlick={voteAnecdote} text="vote" />
       <Button handleKlick={nextAnecdote} text="next anecdote" />
-    </div>
+      <Header text="Anecdote with most votes" />
+      <Anecdote text={anecdotes[popularAnecdote]} votes={countVote[popularAnecdote]} />
+    </>
   )
 }
 
