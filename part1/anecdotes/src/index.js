@@ -29,7 +29,6 @@ const App = (props) => {
     setSelected(Math.floor(Math.random() * 6))
   }
 
-  // handle votes
   const votes = Array.apply(null, Array(6)).map(Number.prototype.valueOf, 0);
 
   const [countVote, setVote] = useState(votes)
@@ -39,8 +38,7 @@ const App = (props) => {
 
   const voteAnecdote = () => { setVote(countVoteCopy) }
 
-  // handle max votes
-  const popularAnecdote = countVote.indexOf(Math.max.apply(null, countVote))
+  const mostPopularAnecdote = countVote.indexOf(Math.max.apply(null, countVote))
 
   return (
     <>
@@ -49,7 +47,7 @@ const App = (props) => {
       <Button handleKlick={voteAnecdote} text="vote" />
       <Button handleKlick={nextAnecdote} text="next anecdote" />
       <Header text="Anecdote with most votes" />
-      <Anecdote text={anecdotes[popularAnecdote]} votes={countVote[popularAnecdote]} />
+      <Anecdote text={anecdotes[mostPopularAnecdote]} votes={countVote[mostPopularAnecdote]} />
     </>
   )
 }
