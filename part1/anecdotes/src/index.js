@@ -19,7 +19,7 @@ const App = (props) => {
   }
 
   // handle votes
-  const votes = Array.apply(null, Array(5)).map(Number.prototype.valueOf, 0);
+  const votes = Array.apply(null, Array(6)).map(Number.prototype.valueOf, 0);
 
   const [countVote, setVote] = useState(votes)
 
