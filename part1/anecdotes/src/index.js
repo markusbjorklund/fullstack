@@ -9,19 +9,15 @@ const Header = ({ text }) => {
 
 const Button = ({ handleKlick, text }) => {
   return (
-<<<<<<< HEAD
-    Math.floor(Math.random() * Math.floor(6))
-=======
     <button onClick={handleKlick}>{text}</button>
->>>>>>> 517c20d... redid 1.12
   )
 }
 
 const Anecdote = ({ text, votes }) => {
   return (
     <>
-    <p>{text}</p>
-    <p>has {votes} votes</p>
+      <p>{text}</p>
+      <p>has {votes} votes</p>
     </>
   )
 }
