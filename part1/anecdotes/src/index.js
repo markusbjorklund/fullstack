@@ -18,9 +18,21 @@ const App = (props) => {
     setSelected(Math.floor(Math.random() * 6))
   }
 
+  // handle votes
+  const votes = Array.apply(null, Array(5)).map(Number.prototype.valueOf, 0);
+
+  const [countVote, setVote] = useState(votes)
+
+  const countVoteCopy = [...countVote]
+  countVoteCopy[selected] += 1
+
+  const voteAnecdote = () => { setVote(countVoteCopy) }
+
   return (
     <div>
       <p>{props.anecdotes[selected]}</p>
+      <p>has {countVote[selected]} votes</p>
+      <Button handleKlick={voteAnecdote} text="vote" />
       <Button handleKlick={nextAnecdote} text="next anecdote" />
     </div>
   )
