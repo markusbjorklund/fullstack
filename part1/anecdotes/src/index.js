@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom'
 
 const randomNum = () => {
   return (
-    Math.floor(Math.random() * Math.floor(5))
+    Math.floor(Math.random() * Math.floor(6))
   )
 }
 
