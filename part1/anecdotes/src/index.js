@@ -33,10 +33,9 @@ const App = (props) => {
 
   const [countVote, setVote] = useState(votes)
 
+  const voteAnecdote = () => { setVote(countVoteCopy) }
   const countVoteCopy = [...countVote]
   countVoteCopy[selected] += 1
-
-  const voteAnecdote = () => { setVote(countVoteCopy) }
 
   const mostPopularAnecdote = countVote.indexOf(Math.max.apply(null, countVote))
 
