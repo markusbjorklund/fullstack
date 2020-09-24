@@ -1,10 +1,14 @@
 # Full Stack Web Development
 
-This is my tasklist for the Full stack open 2020. This is part of Centrias "Road to Software Engineering". 
+My tasklist for the Full stack open 2020. This is part of Centrias "Road to Software Engineering". 
 
 The course consist of a total of 10 parts. Part 1-8 needs to be completed before the deadline. Credits will be given for part 9-10.
 
-Deadline is <b>6.12.2020</b>.
+URL to submit exercises: https://studies.cs.helsinki.fi/stats/courses/fullstackopen
+
+Deadline is **6.12.2020**.
+
+---
 
 ## Part 0
 
@@ -18,6 +22,11 @@ https://fullstackopen.com/en/part0/
 - [x] 0.4
 - [x] 0.5
 - [x] 0.6
+<br>
+
+- [ ] Marked as done on the submission system
+
+---
 
 ## Part 1
 
@@ -39,6 +48,11 @@ https://fullstackopen.com/en/part1
 - [x] 1.12
 - [x] 1.13
 - [x] 1.14
+<br>
+
+- [ ] Marked as done on the submission system
+
+---
 
 ## Part 2
 
@@ -66,3 +80,8 @@ https://fullstackopen.com/en/part2
 - [ ] 2.18
 - [ ] 2.19
 - [ ] 2.20
+<br>
+
+- [ ] Marked as done on the submission system
+
+---
