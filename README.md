@@ -22,6 +22,8 @@ https://fullstackopen.com/en/part0/
 - [x] 0.4
 - [x] 0.5
 - [x] 0.6
+<br>
+- [ ] Marked as done on the submission system
 
 <br>
 
