@@ -22,11 +22,6 @@ https://fullstackopen.com/en/part0/
 - [x] 0.4
 - [x] 0.5
 - [x] 0.6
-<br>
-
-- [ ] Marked as done on the submission system
-
-<br>
 
 ## Part 1
 
@@ -48,10 +43,6 @@ https://fullstackopen.com/en/part1
 - [x] 1.12
 - [x] 1.13
 - [x] 1.14
-
-- [ ] Marked as done on the submission system
-
-<br>
 
 ## Part 2
 
@@ -79,7 +70,3 @@ https://fullstackopen.com/en/part2
 - [ ] 2.18
 - [ ] 2.19
 - [ ] 2.20
-
-- [ ] Marked as done on the submission system
-
-<br>
