@@ -8,7 +8,7 @@ URL to submit exercises: https://studies.cs.helsinki.fi/stats/courses/fullstacko
 
 Deadline is **6.12.2020**.
 
----
+<br>
 
 ## Part 0
 
@@ -26,7 +26,7 @@ https://fullstackopen.com/en/part0/
 
 - [ ] Marked as done on the submission system
 
----
+<br>
 
 ## Part 1
 
@@ -52,7 +52,7 @@ https://fullstackopen.com/en/part1
 
 - [ ] Marked as done on the submission system
 
----
+<br>
 
 ## Part 2
 
@@ -84,4 +84,4 @@ https://fullstackopen.com/en/part2
 
 - [ ] Marked as done on the submission system
 
----
+<br>
