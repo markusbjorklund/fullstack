@@ -70,3 +70,34 @@ https://fullstackopen.com/en/part2
 - [ ] 2.18
 - [ ] 2.19
 - [ ] 2.20
+
+## Part 3
+
+#### Programming a server with NodeJS and Express
+
+https://fullstackopen.com/en/part3
+
+:exclamation:  Make separate repo for part 3 :exclamation:
+
+- [ ] 3.1
+- [ ] 3.2
+- [ ] 3.3
+- [ ] 3.4
+- [ ] 3.5
+- [ ] 3.6
+- [ ] 3.7
+- [ ] 3.8
+- [ ] 3.9
+- [ ] 3.10
+- [ ] 3.11
+- [ ] 3.12
+- [ ] 3.13
+- [ ] 3.14
+- [ ] 3.15
+- [ ] 3.16
+- [ ] 3.17
+- [ ] 3.18
+- [ ] 3.19
+- [ ] 3.20
+- [ ] 3.21
+- [ ] 3.22
