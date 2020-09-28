@@ -54,11 +54,11 @@ https://fullstackopen.com/en/part1
 
 https://fullstackopen.com/en/part2
 
-- [ ] 2.1
-- [ ] 2.2
-- [ ] 2.3
-- [ ] 2.4
-- [ ] 2.5
+- [x] 2.1
+- [x] 2.2
+- [x] 2.3
+- [x] 2.4
+- [x] 2.5
 - [ ] 2.6
 - [ ] 2.7
 - [ ] 2.8
