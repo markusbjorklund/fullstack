@@ -23,6 +23,8 @@ https://fullstackopen.com/en/part0/
 - [x] 0.5
 - [x] 0.6
 
+:white_check_mark: **Submitted**
+
 ## Part 1
 
 #### Introduction to React
@@ -43,6 +45,8 @@ https://fullstackopen.com/en/part1
 - [x] 1.12
 - [x] 1.13
 - [x] 1.14
+
+:white_check_mark: **Submitted**
 
 ## Part 2
 
