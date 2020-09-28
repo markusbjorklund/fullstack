@@ -23,7 +23,7 @@ https://fullstackopen.com/en/part0/
 - [x] 0.5
 - [x] 0.6
 
-:rocket:  **Submitted**
+**Submitted** :rocket:
 
 ## Part 1
 
@@ -46,7 +46,7 @@ https://fullstackopen.com/en/part1
 - [x] 1.13
 - [x] 1.14
 
-:white_check_mark:  **Submitted**
+**Submitted** :rocket:
 
 ## Part 2
 
