@@ -17,29 +17,28 @@ const Total = ({ course }) => {
 const Part = (props) => {
   return (
     <p>
-      {props.part.name} {props.part.exercises}
+      {props.name} {props.exercises}
     </p>
   )
 }
 
 const Content = ({ course }) => {
-  return (
-    <div>
-      <Part part={course.parts[0]} />
-      <Part part={course.parts[1]} />
-      <Part part={course.parts[2]} />
-    </div>
+  return (  
+    <>
+      {course.parts.map(part =>
+        <Part key={part.id} name={part.name} exercises={part.exercises} id={part.id} />
+      )}
+    </>
   )
 }
 
 const Course = ({ course }) => {
   return (
     <>
-    <Header course={course} />
-    <Content course={course} />
-    <Total course={course} />
+      <Header course={course} />
+      <Content course={course} />
     </>
-    )
+  )
 }
 
 const App = () => {
@@ -57,6 +56,14 @@ const App = () => {
       {
         name: 'State of a component',
         exercises: 14
+      },
+      {
+        name: 'Some new',
+        exercises: 10
+      },
+      {
+        name: 'More new',
+        exercises: 15
       }
     ]
   }
