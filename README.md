@@ -54,6 +54,8 @@ https://fullstackopen.com/en/part1
 
 https://fullstackopen.com/en/part2
 
+redo some of the parts... *the Course component contains the components defined in the previous part, which are responsible for rendering the course name and its parts*
+
 - [x] 2.1
 - [x] 2.2
 - [x] 2.3
