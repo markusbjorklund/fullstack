@@ -32,7 +32,13 @@ const Content = ({ course }) => {
   )
 }
 
-const Course = ({course}) => {
+const Course = ({ course }) => {
+  console.log('parts', course.parts)
+
+  console.log('exercises', course.exercises)
+
+  console.log('')
+
   return (
     <>
       <h1>{course.name}</h1>
@@ -41,6 +47,9 @@ const Course = ({course}) => {
           {course.name} {course.exercises}
         </p>
       )}
+      <p><b>total of {course.parts.reduce((sum, exercise) =>
+        sum + exercise.exercises, 0)}
+      </b></p>
     </>
   )
 }
@@ -71,9 +80,9 @@ const App = () => {
         id: 4
       },
       {
-        name: 'Another new course',
-        exercises: 11,
-        id: 5  
+        name: 'Newest course',
+        exercises: 12,
+        id: 6
       }
     ]
   }
