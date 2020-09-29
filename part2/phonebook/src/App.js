@@ -15,23 +15,22 @@ const App = () => {
     event.preventDefault()
     const personObject = {
       name: newName,
-      number: newNumber,
-      date: new Date().toISOString(),
-      id: persons.length + 1,
+      number: newNumber
     }
 
     if (persons.some(person =>
-      person.name.toLowerCase() === newName)) {
+      person.name.toLowerCase() === newName.toLowerCase())) {
       window.alert(newName + ' is already added to phonebook')
     }
 
     else {
       setPersons(persons.concat(personObject))
       setNewName('')
+      setNewNumber('')
     }
   }
 
-  const filteredPersons = persons.filter(person => person.name.toLowerCase().includes(filterName.toLowerCase()))
+  const personObject = persons.filter(person => person.name.toLowerCase().includes(filterName.toLowerCase()))
 
   const handleNameChange = (event) => {
     setNewName(event.target.value)
@@ -76,7 +75,7 @@ const App = () => {
         </div>
       </form>
       <h2>Numbers</h2>
-      {filteredPersons.map(person =>
+      {personObject.map(person =>
         <p key={person.name}> {person.name} {person.number}</p>
       )}
     </>
