@@ -109,7 +109,7 @@ const App = () => {
       <Filter value={countriesFilter} onChange={handleFilterChange} />
       <ShowCountries countries={filteredCountries} buttonFilter={handleFilterChangeCountry} />
     </>
-  );
+  )
 }
 
 export default App;
