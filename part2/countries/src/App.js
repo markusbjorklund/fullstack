@@ -16,11 +16,10 @@ const Filter = (props) => {
 }
 
 const Weather = ({ capital }) => {
-  const [weather, setWeather] = useState(
-    {
-      location: {},
-      current: {}
-    });
+  const [weather, setWeather] = useState({
+    location: {},
+    current: {}
+  });
   const api_key = process.env.REACT_APP_API_KEY
   const rootUrl = 'http://api.weatherstack.com'
   const capitalWeatherUrl = (rootUrl + '/current?access_key=' + api_key + '&query=' + capital)
