@@ -15,8 +15,7 @@ const Filter = (props) => {
   )
 }
 
-const ShowCountries = ({ countries }) => {
-
+const ShowCountries = ({ countries, buttonFilter }) => {
   if (countries.length === 1) {
     return (
       <>
@@ -42,13 +41,15 @@ const ShowCountries = ({ countries }) => {
     return (
       <>
         {countries.map(country => (
-          <p key={country.name}> {country.name}</p>
+          <p key={country.name}> {country.name}
+            <button onClick={() => { buttonFilter(country.name) }}>show</button>
+          </p>
         ))}
       </>
     )
   }
 
-  else if (countries.length > 10 || countries.length - 1) {
+  if (countries.length > 10 || countries.length - 1) {
     return (
       <>
         <p>Too many matches, specify another filter</p>
@@ -75,10 +76,14 @@ const App = () => {
     setCountriesFilter(event.target.value)
   }
 
+  const handleFilterChangeCountry = (filter) => {
+    setCountriesFilter(filter)
+  }
+
   return (
     <>
       <Filter value={countriesFilter} onChange={handleFilterChange} />
-      <ShowCountries countries={filteredCountries} />
+      <ShowCountries countries={filteredCountries} buttonFilter={handleFilterChangeCountry} />
     </>
   );
 }
