@@ -31,9 +31,9 @@ const Weather = ({ capital }) => {
   return (
     <>
       <h3>Weather in {weather.location.name}</h3>
-      <p><b>temperature:</b> {weather.current.temperature} Celcius</p>
+      <p><b>Temperature:</b> {weather.current.temperature} celcius</p>
       <img src={weather.current.weather_icons} alt='icon' />
-      <p><b>wind:</b> {weather.current.wind_speed} kph direction {weather.current.wind_dir}</p>
+      <p><b>Wind:</b> {weather.current.wind_speed} kph, direction {weather.current.wind_dir}</p>
     </>
   )
 }
@@ -44,9 +44,9 @@ const ShowCountries = ({ countries, buttonFilter }) => {
       <>
         {countries.map(country =>
           <div key={country.name}>
-            <h2>{country.name}</h2>
-            <p>Capital: {country.capital}</p>
-            <p>Population: {country.population}</p>
+            <h1>{country.name}</h1>
+            <p><b>Capital:</b> {country.capital}</p>
+            <p><b>Population:</b> {country.population}</p>
             <h3>Spoken languages</h3>
             <ul>
               {country.languages.map(lang =>
