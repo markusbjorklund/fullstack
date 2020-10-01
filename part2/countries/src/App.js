@@ -15,18 +15,12 @@ const Filter = (props) => {
   )
 }
 
-const ShowCountries = ({ filteredCountries, countries }) => {
-  if (filteredCountries.length === Math.max(countries.length)) {
-    return (
-      <>
-      </>
-    )
-  }
+const ShowCountries = ({ countries }) => {
 
-  if (filteredCountries.length === 1) {
+  if (countries.length === 1) {
     return (
       <>
-        {filteredCountries.map(country =>
+        {countries.map(country =>
           <div key={country.name}>
             <h2>{country.name}</h2>
             <p>capital {country.capital}</p>
@@ -44,17 +38,17 @@ const ShowCountries = ({ filteredCountries, countries }) => {
     )
   }
 
-  if (filteredCountries.length < 10) {
+  if (countries.length < 10) {
     return (
       <>
-        {filteredCountries.map(country => (
+        {countries.map(country => (
           <p key={country.name}> {country.name}</p>
         ))}
       </>
     )
   }
 
-  else if (filteredCountries.length > 10 || filteredCountries.length - 1) {
+  else if (countries.length > 10 || countries.length - 1) {
     return (
       <>
         <p>Too many matches, specify another filter</p>
@@ -84,7 +78,7 @@ const App = () => {
   return (
     <>
       <Filter value={countriesFilter} onChange={handleFilterChange} />
-      <ShowCountries filteredCountries={filteredCountries} countries={countries} />
+      <ShowCountries countries={filteredCountries} />
     </>
   );
 }
