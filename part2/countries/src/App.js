@@ -15,6 +15,29 @@ const Filter = (props) => {
   )
 }
 
+const Weather = ({capital}) => {
+  const [weather, setWeather] = useState({location:{}, current: {}});
+  const api_key = process.env.REACT_APP_API_KEY
+  const rootUrl = 'http://api.weatherstack.com'
+  const capitalWeatherUrl = (rootUrl + '/current?access_key=' + api_key + '&query=' + capital)
+
+  useEffect(() => {
+    axios.get(capitalWeatherUrl)
+    .then(response => {
+      setWeather(response.data)
+    })
+  }, [capitalWeatherUrl]) 
+
+  return(
+    <>
+      <h3>Weather in {weather.location.name}</h3>
+      <p><b>temperature:</b> {weather.current.temperature} Celcius</p>
+      <img src = {weather.current.weather_icons} alt='icon' />
+      <p><b>wind:</b> {weather.current.wind_speed} kph direction {weather.current.wind_dir}</p>
+    </>
+  )
+}
+
 const ShowCountries = ({ countries, buttonFilter }) => {
   if (countries.length === 1) {
     return (
@@ -22,15 +45,16 @@ const ShowCountries = ({ countries, buttonFilter }) => {
         {countries.map(country =>
           <div key={country.name}>
             <h2>{country.name}</h2>
-            <p>capital {country.capital}</p>
-            <p>population {country.population}</p>
-            <h3>languages</h3>
+            <p>Capital: {country.capital}</p>
+            <p>Population: {country.population}</p>
+            <h3>Spoken languages</h3>
             <ul>
               {country.languages.map(lang =>
                 <li key={lang.iso639_1}>{lang.name}</li>
               )}
             </ul>
             <img src={country.flag} alt="country flag" width="150" />
+            <Weather capital={country.capital} />
           </div>
         )}
       </>
