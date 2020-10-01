@@ -15,24 +15,24 @@ const Filter = (props) => {
   )
 }
 
-const Weather = ({capital}) => {
-  const [weather, setWeather] = useState({location:{}, current: {}});
+const Weather = ({ capital }) => {
+  const [weather, setWeather] = useState({ location: {}, current: {} });
   const api_key = process.env.REACT_APP_API_KEY
   const rootUrl = 'http://api.weatherstack.com'
   const capitalWeatherUrl = (rootUrl + '/current?access_key=' + api_key + '&query=' + capital)
 
   useEffect(() => {
     axios.get(capitalWeatherUrl)
-    .then(response => {
-      setWeather(response.data)
-    })
-  }, [capitalWeatherUrl]) 
+      .then(response => {
+        setWeather(response.data)
+      })
+  }, [capitalWeatherUrl])
 
-  return(
+  return (
     <>
       <h3>Weather in {weather.location.name}</h3>
       <p><b>temperature:</b> {weather.current.temperature} Celcius</p>
-      <img src = {weather.current.weather_icons} alt='icon' />
+      <img src={weather.current.weather_icons} alt='icon' />
       <p><b>wind:</b> {weather.current.wind_speed} kph direction {weather.current.wind_dir}</p>
     </>
   )
