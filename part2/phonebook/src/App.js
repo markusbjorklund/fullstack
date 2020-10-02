@@ -8,7 +8,7 @@ const App = () => {
   const [persons, setPersons] = useState([])
   const [newName, setNewName] = useState('')
   const [newNumber, setNewNumber] = useState('')
-  const [filterName, setFilterName] = useState('')
+  const [showPerson, setShowPerson] = useState('')
 
   useEffect(() => {
     axios
@@ -25,6 +25,13 @@ const App = () => {
       number: newNumber
     }
 
+    axios
+    .post('http://localhost:3001/persons', personObject)
+    .then(response => {
+      setPersons(persons.concat(response.data))
+      setNewNumber('')
+    })
+
     if (persons.some(person =>
       person.name.toLowerCase() === newName.toLowerCase())) {
       window.alert(newName + ' is already added to phonebook')
@@ -37,7 +44,7 @@ const App = () => {
     }
   }
 
-  const personObject = persons.filter(person => person.name.toLowerCase().includes(filterName.toLowerCase()))
+  const personObject = persons.filter(person => person.name.toLowerCase().includes(ShadowRoot.toLowerCase()))
 
   const handleNameChange = (event) => {
     setNewName(event.target.value)
@@ -48,13 +55,13 @@ const App = () => {
   }
 
   const handleFilterChange = (event) => {
-    setFilterName(event.target.value)
+    setShowPerson(event.target.value)
   }
 
   return (
     <>
       <h2>Phonebook</h2>
-      <Filter value={filterName} onChange={handleFilterChange} />
+      <Filter value={showPerson} onChange={handleFilterChange} />
       <h3>add a new</h3>
       <PersonForm onSubmit={addPerson} valueName={newName} onChangeName={handleNameChange} valueNumber={newNumber} onChangeNumber={handleNumberChange} />
       <h3>Numbers</h3>
