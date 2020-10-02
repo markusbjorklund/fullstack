@@ -7,8 +7,8 @@ const Weather = ({ capital }) => {
     current: {}
   });
   const api_key = process.env.REACT_APP_API_KEY
-  const rootUrl = 'http://api.weatherstack.com'
-  const capitalWeatherUrl = (rootUrl + '/current?access_key=' + api_key + '&query=' + capital)
+  const rootUrl = `http://api.weatherstack.com`
+  const capitalWeatherUrl = `${rootUrl}/current?access_key=${api_key}&query=${capital}`
 
   useEffect(() => {
     axios
