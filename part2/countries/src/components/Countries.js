@@ -42,7 +42,7 @@ const Countries = ({ countries, buttonFilter }) => {
         <p>Too many matches, specify another filter</p>
       </>
     )
-  } else return null
+  }
 }
 
 export default Countries
