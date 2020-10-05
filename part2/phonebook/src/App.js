@@ -32,17 +32,27 @@ const App = () => {
     }
 
     else {
-      setPersons(persons.concat(personObject))
-      setNewName('')
-      setNewNumber('')
-
       personService
-      .create(personObject)
-      .then(response => {
-        setPersons(persons.concat(response.data))
-        setNewNumber('')
-      })
-    }      
+        .create(personObject)
+        .then(response => {
+          setPersons(persons.concat(response.data))
+          setNewName('')
+          setNewNumber('')
+        })
+    }
+  }
+
+  const deletePerson = (id) => {
+    const personToBeRemoved = persons.find((name) => name.id === id)
+    if (window.confirm(`Delete ${personToBeRemoved.name} ?`)) 
+    { 
+      personService
+        .deletePerson(id)
+        .then(response => {
+          const personDeleted = persons.filter(persons => id !== persons.id)
+          setPersons(personDeleted)
+        })
+    }
   }
 
   const personObject = persons.filter(person => person.name.toLowerCase().includes(showPerson.toLowerCase()))
@@ -66,7 +76,7 @@ const App = () => {
       <h3>add a new</h3>
       <PersonForm onSubmit={addPerson} valueName={newName} onChangeName={handleNameChange} valueNumber={newNumber} onChangeNumber={handleNumberChange} />
       <h3>Numbers</h3>
-      <Persons persons={personObject} />
+      <Persons persons={personObject} deletePerson={deletePerson} />
     </>
   )
 }
