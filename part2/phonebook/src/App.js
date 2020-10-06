@@ -3,12 +3,24 @@ import Filter from './components/Filter'
 import PersonForm from './components/PersonForm'
 import Persons from './components/Persons'
 import personService from './services/Services'
+import './index.css'
+
+const Notification = ({ message }) => {
+  if (message === null) {
+    return null
+  }
+
+  return (
+    <div className="flash">{message}</div>
+  )
+}
 
 const App = () => {
   const [persons, setPersons] = useState([])
   const [newName, setNewName] = useState('')
   const [newNumber, setNewNumber] = useState('')
   const [showPerson, setShowPerson] = useState('')
+  const [flashMessage, setFlashMessage] = useState('')
 
   useEffect(() => {
     personService
@@ -39,7 +51,7 @@ const App = () => {
             setNewNumber('')
           })
       }
-    } 
+    }
 
     else {
       personService
@@ -48,6 +60,10 @@ const App = () => {
           setPersons(persons.concat(personsReturn))
           setNewName('')
           setNewNumber('')
+          setFlashMessage(`Added ${newName} to phonebook`)
+          setTimeout(() => {
+            setFlashMessage(null)
+          }, 5000)
         })
     }
   }
@@ -81,6 +97,7 @@ const App = () => {
   return (
     <>
       <h2>Phonebook</h2>
+      <Notification message={flashMessage} />
       <Filter value={showPerson} onChange={handleFilterChange} />
       <h3>add a new</h3>
       <PersonForm onSubmit={addPerson} valueName={newName} onChangeName={handleNameChange} valueNumber={newNumber} onChangeNumber={handleNumberChange} />
