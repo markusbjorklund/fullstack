@@ -54,8 +54,6 @@ const App = () => {
       if (window.confirm(`${newName} is already added to phonebook, replace the old number with a new one?`)) {
         const foundName = persons.find(found => found.name === newName)
         const id = foundName.id
-
-
         personService
           .update(id, personObject)
           .then(newNumberForPerson => {
