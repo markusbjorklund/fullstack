@@ -12,12 +12,20 @@ code {
     monospace;
 }
 
-/* .flash {
-  border: 5px solid green;
+.notification {
   border-radius: 5px;
   padding: 10px;
   margin: 10px; 
   font-weight: bold;
   font-size: 20px;
+}
+
+.flash {
+  border: 5px solid green;
   color: green;
-} */
+} 
+
+.error {
+  border: 5px solid red;
+  color: red;
+} 

@@ -5,13 +5,23 @@ import Persons from './components/Persons'
 import personService from './services/Services'
 import './index.css'
 
-const Notification = ({ message }) => {
+const Flash = ({ message }) => {
   if (message === null) {
     return null
   }
 
   return (
-    <div className="flash">{message}</div>
+    <div className="notification flash">{message}</div>
+  )
+}
+
+const Error = ({ message }) => {
+  if (message === null) {
+    return null
+  }
+
+  return (
+    <div className="notification error">{message}</div>
   )
 }
 
@@ -20,7 +30,8 @@ const App = () => {
   const [newName, setNewName] = useState('')
   const [newNumber, setNewNumber] = useState('')
   const [showPerson, setShowPerson] = useState('')
-  const [flashMessage, setFlashMessage] = useState('')
+  const [flashMessage, setFlashMessage] = useState(null)
+  const [errorMessage, setErrorMessage] = useState(null)
 
   useEffect(() => {
     personService
@@ -43,10 +54,18 @@ const App = () => {
       if (window.confirm(`${newName} is already added to phonebook, replace the old number with a new one?`)) {
         const foundName = persons.find(found => found.name === newName)
         const id = foundName.id
+
+
         personService
           .update(id, personObject)
           .then(newNumberForPerson => {
             setPersons(persons.map(person => person.id !== id ? person : newNumberForPerson))
+          })
+          .catch(error => {
+            setErrorMessage(`Information of ${newName} has already been removed from the server`)
+            setTimeout(() => {
+              setErrorMessage(null)
+            }, 5000)
             setNewName('')
             setNewNumber('')
           })
@@ -60,7 +79,7 @@ const App = () => {
           setPersons(persons.concat(personsReturn))
           setNewName('')
           setNewNumber('')
-          setFlashMessage(`Added ${newName} to phonebook`)
+          setFlashMessage(`Added ${newName} to the phonebook`)
           setTimeout(() => {
             setFlashMessage(null)
           }, 5000)
@@ -70,7 +89,7 @@ const App = () => {
 
   const deletePerson = (id) => {
     const personToBeRemoved = persons.find((name) => name.id === id)
-    if (window.confirm(`Delete ${personToBeRemoved.name} ?`)) {
+    if (window.confirm(`Delete ${personToBeRemoved.name}?`)) {
       personService
         .deletePerson(id)
         .then(response => {
@@ -97,7 +116,8 @@ const App = () => {
   return (
     <>
       <h2>Phonebook</h2>
-      <Notification message={flashMessage} />
+      <Flash message={flashMessage} />
+      <Error message={errorMessage} />
       <Filter value={showPerson} onChange={handleFilterChange} />
       <h3>add a new</h3>
       <PersonForm onSubmit={addPerson} valueName={newName} onChangeName={handleNameChange} valueNumber={newNumber} onChangeNumber={handleNumberChange} />
