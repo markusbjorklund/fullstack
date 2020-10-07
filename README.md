@@ -9,9 +9,13 @@ URL to submit exercises: https://studies.cs.helsinki.fi/stats/courses/fullstacko
 Deadline is **6.12.2020**.
 
 [Part 0](#part-0) - Submitted :rocket:
+
 [Part 1](#part-1) - Submitted :rocket:
+
 [Part 2](#part-2) - Done - <font color="red">Not submitted</font>
+
 [Part 3](#part-3) - In progress 
+
 [Part 4](#part-4) -  
 [Part 5](#part-5) -  
 [Part 6](#part-6) -  
