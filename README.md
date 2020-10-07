@@ -93,12 +93,12 @@ https://fullstackopen.com/en/part3
 
 :exclamation:  Make separate repo for part 3 :exclamation:
 
-- [ ] 3.1
-- [ ] 3.2
-- [ ] 3.3
-- [ ] 3.4
-- [ ] 3.5
-- [ ] 3.6
+- [x] 3.1
+- [x] 3.2
+- [x] 3.3
+- [x] 3.4
+- [x] 3.5
+- [x] 3.6
 - [ ] 3.7
 - [ ] 3.8
 - [ ] 3.9
