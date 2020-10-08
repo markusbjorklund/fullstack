@@ -91,7 +91,7 @@ https://fullstackopen.com/en/part2
 
 https://fullstackopen.com/en/part3
 
-:exclamation:  Make separate repo for part 3 :exclamation:
+Repo for part 3: https://github.com/markusbjorklund/fullstack-part3
 
 - [x] 3.1
 - [x] 3.2
