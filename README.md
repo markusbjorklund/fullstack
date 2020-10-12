@@ -99,11 +99,11 @@ Repo for part 3: https://github.com/markusbjorklund/fullstack-part3
 - [x] 3.4
 - [x] 3.5
 - [x] 3.6
-- [ ] 3.7
-- [ ] 3.8
-- [ ] 3.9
-- [ ] 3.10
-- [ ] 3.11
+- [x] 3.7
+- [x] 3.8
+- [x] 3.9
+- [x] 3.10
+- [x] 3.11
 - [ ] 3.12
 - [ ] 3.13
 - [ ] 3.14
