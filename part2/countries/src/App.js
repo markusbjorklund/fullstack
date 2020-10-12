@@ -6,12 +6,14 @@ import Countries from './components/Countries'
 const App = () => {
   const [countries, setCountries] = useState([])
   const [countriesFilter, setCountriesFilter] = useState('')
+  const [allCountries, setAllCountries] = useState('')
 
   useEffect(() => {
     axios
       .get('https://restcountries.eu/rest/v2/all')
       .then(response => {
         setCountries(response.data)
+        setAllCountries(response.data)
       })
   }, [])
 
@@ -28,7 +30,7 @@ const App = () => {
   return (
     <>
       <Filter value={countriesFilter} onChange={handleFilterChange} />
-      <Countries countries={filteredCountries} buttonFilter={handleFilterChangeCountry} />
+      <Countries countries={filteredCountries} allCountries={allCountries} buttonFilter={handleFilterChangeCountry} />
     </>
   )
 }

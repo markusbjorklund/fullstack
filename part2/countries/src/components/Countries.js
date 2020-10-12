@@ -1,7 +1,15 @@
 import React from 'react'
 import Weather from './Weather'
 
-const Countries = ({ countries, buttonFilter }) => {
+const Countries = ({ countries, allCountries, buttonFilter }) => {
+  if (countries.length === 0) {
+    return (
+      <>
+      <p>No matches found</p>
+      </>
+    )
+  }
+
   if (countries.length === 1) {
     return (
       <>
@@ -36,13 +44,14 @@ const Countries = ({ countries, buttonFilter }) => {
     )
   }
 
-  if (countries.length > 10) {
+  if (countries.length > 10 && countries.length < allCountries.length - 1) {
     return (
       <>
         <p>Too many matches, specify another filter</p>
       </>
     )
   }
+  else return null
 }
 
 export default Countries
