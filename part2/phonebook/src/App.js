@@ -67,20 +67,31 @@ const App = () => {
             setNewName('')
             setNewNumber('')
           })
+          .catch(error => {
+            console.log(error.response.data)
+          })
       }
     }
 
     else {
+      const personObject = {
+        name: newName,
+        number: newNumber
+      }
+
       personService
         .create(personObject)
         .then(personsReturn => {
           setPersons(persons.concat(personsReturn))
+          setFlashMessage(`Added ${newName} to the phonebook`)
           setNewName('')
           setNewNumber('')
-          setFlashMessage(`Added ${newName} to the phonebook`)
           setTimeout(() => {
             setFlashMessage(null)
           }, 5000)
+        })
+        .catch(error => {
+          setErrorMessage(error.response.data.error);
         })
     }
   }
