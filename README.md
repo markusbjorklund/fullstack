@@ -11,7 +11,7 @@ Deadline is **6.12.2020**.
 * [Part 0](#part-0) - Submitted :rocket:
 * [Part 1](#part-1) - Submitted :rocket:
 * [Part 2](#part-2) - Done - Not submitted
-* [Part 3](#part-3) - In progress 
+* [Part 3](#part-3) - Done - Not submitted 
 * [Part 4](#part-4) -  
 * [Part 5](#part-5) -  
 * [Part 6](#part-6) -  
@@ -105,13 +105,13 @@ Repo for part 3: https://github.com/markusbjorklund/fullstack-part3
 - [x] 3.10
 - [x] 3.11
 - [x] 3.12
-- [ ] 3.13
-- [ ] 3.14
-- [ ] 3.15
-- [ ] 3.16
-- [ ] 3.17
-- [ ] 3.18
-- [ ] 3.19
-- [ ] 3.20
-- [ ] 3.21
-- [ ] 3.22
+- [x] 3.13
+- [x] 3.14
+- [x] 3.15
+- [x] 3.16
+- [x] 3.17
+- [x] 3.18
+- [x] 3.19
+- [x] 3.20
+- [x] 3.21
+- [x] 3.22
