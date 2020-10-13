@@ -86,13 +86,14 @@ const App = () => {
           setFlashMessage(`Added ${newName} to the phonebook`)
           setNewName('')
           setNewNumber('')
-          setTimeout(() => {
-            setFlashMessage(null)
-          }, 5000)
         })
         .catch(error => {
           setErrorMessage(error.response.data.error);
         })
+        setTimeout(() => {
+          setFlashMessage(null)
+          setErrorMessage(null)
+        }, 5000)
     }
   }
 
