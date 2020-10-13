@@ -115,3 +115,32 @@ Repo for part 3: https://github.com/markusbjorklund/fullstack-part3
 - [x] 3.20
 - [x] 3.21
 - [x] 3.22
+
+## Part 4
+
+#### Testing Express servers, user administration
+
+https://fullstackopen.com/en/part4
+
+- [ ] 4.1
+- [ ] 4.2
+- [ ] 4.3
+- [ ] 4.4
+- [ ] 4.5
+- [ ] 4.6
+- [ ] 4.7
+- [ ] 4.8
+- [ ] 4.9
+- [ ] 4.10
+- [ ] 4.11
+- [ ] 4.12
+- [ ] 4.13
+- [ ] 4.14
+- [ ] 4.15
+- [ ] 4.16
+- [ ] 4.17
+- [ ] 4.18
+- [ ] 4.19
+- [ ] 4.20
+- [ ] 4.21
+- [ ] 4.22
