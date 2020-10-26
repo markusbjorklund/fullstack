@@ -32,7 +32,7 @@ const App = () => {
   const [showPerson, setShowPerson] = useState('')
   const [flashMessage, setFlashMessage] = useState(null)
   const [errorMessage, setErrorMessage] = useState(null)
-
+  
   useEffect(() => {
     personService
       .getAll()
@@ -54,6 +54,7 @@ const App = () => {
       if (window.confirm(`${newName} is already added to phonebook, replace the old number with a new one?`)) {
         const foundName = persons.find(found => found.name === newName)
         const id = foundName.id
+
         personService
           .update(id, personObject)
           .then(newNumberForPerson => {
@@ -67,33 +68,21 @@ const App = () => {
             setNewName('')
             setNewNumber('')
           })
-          .catch(error => {
-            console.log(error.response.data)
-          })
       }
     }
-
+    
     else {
-      const personObject = {
-        name: newName,
-        number: newNumber
-      }
-
       personService
         .create(personObject)
         .then(personsReturn => {
           setPersons(persons.concat(personsReturn))
-          setFlashMessage(`Added ${newName} to the phonebook`)
           setNewName('')
           setNewNumber('')
+          setFlashMessage(`Added ${newName} to the phonebook`)
+          setTimeout(() => {
+            setFlashMessage(null)
+          }, 5000)
         })
-        .catch(error => {
-          setErrorMessage(error.response.data.error);
-        })
-        setTimeout(() => {
-          setFlashMessage(null)
-          setErrorMessage(null)
-        }, 5000)
     }
   }
 
@@ -110,7 +99,7 @@ const App = () => {
   }
 
   const personObject = persons.filter(person => person.name.toLowerCase().includes(showPerson.toLowerCase()))
-
+  
   const handleNameChange = (event) => {
     setNewName(event.target.value)
   }
