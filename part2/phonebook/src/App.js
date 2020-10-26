@@ -58,6 +58,8 @@ const App = () => {
           .update(id, personObject)
           .then(newNumberForPerson => {
             setPersons(persons.map(person => person.id !== id ? person : newNumberForPerson))
+            setNewName('')
+            setNewNumber('')
           })
           .catch(error => {
             setErrorMessage(`Information of ${newName} has already been removed from the server`)
@@ -68,7 +70,7 @@ const App = () => {
             setNewNumber('')
           })
           .catch(error => {
-            setErrorMessage(error.response.data.error);
+            console.log(error.response.data)
           })
       }
     }
