@@ -10,7 +10,7 @@ Deadline is **6.12.2020**.
 
 * [Part 0](#part-0) - Submitted :rocket:
 * [Part 1](#part-1) - Submitted :rocket:
-* [Part 2](#part-2) - Done - Not submitted
+* [Part 2](#part-2) - Submitted :rocket:
 * [Part 3](#part-3) - // fix validations on update // - Done - Not submitted 
 * [Part 4](#part-4) - Reading  
 * [Part 5](#part-5) -  
