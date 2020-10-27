@@ -11,20 +11,13 @@ const totalLikes = (blogs) => {
 
 const favoriteBlog = (blogs) => {
   const likes = blogs.map(blog => blog.likes)
-
-  console.log(likes)
-
   const object = blogs.find(blog => blog.likes === Math.max(...likes))
 
   if (typeof object === 'undefined') return 0
 
-  console.log(object)
-
   delete object._id
   delete object.__v
   delete object.url
-
-  console.log(object)
   
   return object
 }
