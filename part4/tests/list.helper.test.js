@@ -1,4 +1,4 @@
-const list_helper = require('../utils/list_helper')
+const listHelper = require('../utils/list_helper')
 
 const emptyListofBlogs = []
 
@@ -67,6 +67,7 @@ const blogs = [
 
 test('dummy returns one', () => {
   const blogs = []
+
   const result = listHelper.dummy(blogs)
   expect(result).toBe(1)
 })
@@ -90,7 +91,6 @@ describe('total likes', () => {
 })
 
 describe('favorite blog', () => {
-
   test('has most likes', () => {
     const result = listHelper.favoriteBlog(blogs)
     expect(result).toEqual({
@@ -99,7 +99,6 @@ describe('favorite blog', () => {
       likes: 12
     })
   })
-  
   test('blog list is empty', () => {
     const result = listHelper.favoriteBlog(emptyListofBlogs)
     expect(result).toBe(0)
