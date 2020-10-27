@@ -90,6 +90,7 @@ describe('total likes', () => {
 })
 
 describe('favorite blog', () => {
+
   test('has most likes', () => {
     const result = listHelper.favoriteBlog(blogs)
     expect(result).toEqual({
@@ -98,6 +99,7 @@ describe('favorite blog', () => {
       likes: 12
     })
   })
+  
   test('blog list is empty', () => {
     const result = listHelper.favoriteBlog(emptyListofBlogs)
     expect(result).toBe(0)
