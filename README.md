@@ -123,7 +123,7 @@ Repo for part 3: https://github.com/markusbjorklund/fullstack-part3
 https://fullstackopen.com/en/part4
 
 - [x] 4.1
-- [ ] 4.2
+- [x] 4.2
 - [ ] 4.3
 - [ ] 4.4
 - [ ] 4.5
