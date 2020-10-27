@@ -1,0 +1,9 @@
+POST http://localhost:3003/api/blogs
+Content-Type: application/json
+
+{
+  "title": "The number of the beast",
+  "author": "Eevil deevil",
+  "url": "https://www.theworldsworstwebsiteever.com",
+  "likes": 666
+}
