@@ -1,5 +1,6 @@
 const _ = require('lodash')
 const blog = require('../models/blog')
+const { get } = require('mongoose')
 
 const dummy = (blogs) => {
   return 1
@@ -38,4 +39,18 @@ const mostBlogs = (blogs) => {
   return blogKing
 }
 
-module.exports = { dummy, totalLikes, favoriteBlog, mostBlogs }
+const mostLikes = blogs => {
+  if (blogs.length === 0) return 0
+
+  const getMostLikes = (bloglist) => bloglist
+    .reduce(({ totalsum, most }, { likes, author }) => {
+      totalsum[author] = likes = (totalsum[author] || 0) + likes;
+      if (likes > most.likes) most = { author, likes }
+      return { totalsum, most }
+    }, { totalsum: {}, most: { likes: 0 } })
+    .most;
+
+  return getMostLikes(blogs)
+}
+
+module.exports = { dummy, totalLikes, favoriteBlog, mostBlogs, mostLikes }

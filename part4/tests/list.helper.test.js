@@ -143,3 +143,26 @@ describe('most blogs', () => {
     expect(result).toBe(0)
   })
 })
+
+describe('most likes', () => {
+  test('has most likes', () => {
+    const result = listHelper.mostLikes(blogs)
+    expect(result).toEqual({
+      author: "Edsger W. Dijkstra",
+      likes: 17
+    })
+  })
+
+  test('only one blog', () => {
+    const result = listHelper.mostLikes(listWithOneBlog)
+    expect(result).toEqual({
+      author: "Edsger W. Dijkstra",
+      likes: 5
+    })
+  })
+
+  test('blog list is empty', () => {
+    const result = listHelper.mostLikes(emptyListofBlogs)
+    expect(result).toBe(0)
+  })
+})
