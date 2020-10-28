@@ -65,6 +65,21 @@ const blogs = [
   }
 ]
 
+const mostBlogs = [
+  {
+    author: "Martin C. Robert",
+    blogs: 1
+  },
+  {
+    author: "some author",
+    blogs: 2
+  },
+  {
+    author: "Robert C. Martin",
+    blogs: 3
+  }
+]
+
 test('dummy returns one', () => {
   const blogs = []
 
@@ -99,8 +114,32 @@ describe('favorite blog', () => {
       likes: 12
     })
   })
+
   test('blog list is empty', () => {
     const result = listHelper.favoriteBlog(emptyListofBlogs)
+    expect(result).toBe(0)
+  })
+})
+
+describe('most blogs', () => {
+  test('has most blogs', () => {
+    const result = listHelper.mostBlogs(mostBlogs)
+    expect(result).toEqual({
+      author: "Robert C. Martin",
+      blogs: 3
+    })
+  })
+
+  test('only one blog', () => {
+    const result = listHelper.mostBlogs(listWithOneBlog)
+    expect(result).toEqual({
+      author: "Edsger W. Dijkstra",
+      blogs: 1
+    })
+  })
+
+  test('blog list is empty', () => {
+    const result = listHelper.mostBlogs(emptyListofBlogs)
     expect(result).toBe(0)
   })
 })
