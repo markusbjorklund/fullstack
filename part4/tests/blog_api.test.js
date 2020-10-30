@@ -74,6 +74,18 @@ test('has no likes', async () => {
   expect(noLikesBlog.body).toHaveProperty('likes', 0)
 })
 
+test("no title and url", async () => {
+  const noTitleNoUrlBlog = {
+    author: 'Tester forgot title and url',
+    likes: 100
+  }
+
+  await api
+    .post("/api/blogs")
+    .send(noTitleNoUrlBlog)
+    .expect(400)
+})
+
 afterAll(() => {
   mongoose.connection.close()
 })
