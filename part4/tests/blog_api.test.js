@@ -41,6 +41,27 @@ test('id is defined', async () => {
   expect(blogs.body[0].id).toBeDefined()
 })
 
+test('blogpost can be added', async () => {
+  const newBlog = {
+    title: 'New Testblog',
+    author: 'New Tester',
+    url: 'New cool url',
+    likes: '100'
+  }
+
+  await api
+    .post('/api/blogs')
+    .send(newBlog)
+    .expect(201)
+
+  const response = await api.get('/api/blogs')
+
+  const blogs = response.body.map(blog => blog.title)
+
+  expect(response.body).toHaveLength(initialBlogs.length + 1)
+  expect(blogs).toContain('New Testblog')
+})
+
 afterAll(() => {
   mongoose.connection.close()
 })
