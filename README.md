@@ -143,4 +143,4 @@ https://fullstackopen.com/en/part4
 - [ ] 4.19
 - [ ] 4.20
 - [ ] 4.21
-- [ ] 4.22
+- [ ] 4.22 :exclamation:
