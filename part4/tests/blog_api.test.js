@@ -62,6 +62,18 @@ test('blogpost can be added', async () => {
   expect(blogs).toContain('New Testblog')
 })
 
+test('has no likes', async () => {
+  const newBlog = {
+    title: 'Blog with no likes',
+    author: 'Tester zero',
+    url: 'Zero cool url'
+  }
+
+  const noLikesBlog = await api.post('/api/blogs').send(newBlog)
+
+  expect(noLikesBlog.body).toHaveProperty('likes', 0)
+})
+
 afterAll(() => {
   mongoose.connection.close()
 })
