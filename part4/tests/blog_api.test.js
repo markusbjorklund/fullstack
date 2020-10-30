@@ -86,6 +86,15 @@ test("no title and url", async () => {
     .expect(400)
 })
 
+test('delete blog', async () => {
+  const blogs = await Blog.find({}) // I do not have a separate helper file, so this will have to do
+  const blogToDelete = blogs[0]
+
+  await api
+    .delete(`/api/blogs/${blogToDelete.id}`)
+    .expect(204)
+})
+
 afterAll(() => {
   mongoose.connection.close()
 })
