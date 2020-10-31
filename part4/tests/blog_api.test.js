@@ -2,26 +2,14 @@ const mongoose = require('mongoose')
 const supertest = require('supertest')
 const app = require('../app')
 const api = supertest(app)
+const helper = require('./helper')
 
 const Blog = require('../models/blog')
-const initialBlogs = [
-  {
-    title: 'Testblog 1',
-    author: 'Tester 1',
-    url: 'cool url 1',
-    likes: 2
-  },
-  {
-    title: 'Testblog 2',
-    author: 'Tester 2',
-    url: 'cool url 2',
-    likes: 4
-  },
-]
+
 beforeEach(async () => {
   await Blog.deleteMany({})
-  await new Blog(initialBlogs[0]).save()
-  await new Blog(initialBlogs[1]).save()
+  await new Blog(helper.initialBlogs[0]).save()
+  await new Blog(helper.initialBlogs[1]).save()
 })
 
 describe('retrieve posts from the blog', () => {
@@ -61,7 +49,7 @@ describe('saving posts to blog', () => {
 
     const blogs = response.body.map(blog => blog.title)
 
-    expect(response.body).toHaveLength(initialBlogs.length + 1)
+    expect(response.body).toHaveLength(helper.initialBlogs.length + 1)
     expect(blogs).toContain('New Testblog')
   })
 
@@ -93,15 +81,15 @@ describe('saving posts to blog', () => {
 
 describe('deleting and updating posts in the blog',() => {
   test('deleting a post based in id is possible', async () => {
-    const blogs = await Blog.find({})
+    const blogs = await helper.blogsInDb()
     const blogToDelete = blogs[0]
   
     await api
       .delete(`/api/blogs/${blogToDelete.id}`)
       .expect(204)
   
-    const deletedBlog = await Blog.find({})
-    expect(deletedBlog).toHaveLength(initialBlogs.length - 1)
+    const deletedBlog = await helper.blogsInDb()
+    expect(deletedBlog).toHaveLength(helper.initialBlogs.length - 1)
   })
   
   test('update likes on a post or adding likes when there is no likes', async () => {
