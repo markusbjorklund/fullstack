@@ -3,10 +3,10 @@ POST http://localhost:3003/api/blogs
 Content-Type: application/json
 
 {
-  "title": "The number of the second beast",
-  "author": "Eevil deevil",
+  "title": "How to blog",
+  "author": "BlogKing",
   "url": "https://www.theworldsworstwebsiteever.com",
-  "likes": 777
+  "likes": 22
 }
 
 ###
@@ -18,8 +18,8 @@ POST http://localhost:3003/api/users
 Content-Type: application/json
 
 {
-  "username": "Not Macken",
-  "name": "Markus Bjorklund",
+  "username": "BlogKing",
+  "name": "Master of the blog",
   "password": "secret"
 }
 
