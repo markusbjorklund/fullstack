@@ -13,7 +13,7 @@ const userSchema = mongoose.Schema({
     unique: true
   },
   name: String,
-  passWordHash: String
+  passwordHash: String
 })
 
 userSchema.set('toJSON', {
