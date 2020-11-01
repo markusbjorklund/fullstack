@@ -36,3 +36,16 @@ Content-Type: application/json
   "username": "Laban",
   "password": "sekret"
 }
+
+###
+POST http://localhost:3003/api/blogs
+Content-Type: application/json
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ
+
+{
+  "title": "Labans blogg",
+  "author": "Laban",
+  "url": "https://www.theworldsworstwebsiteever.com",
+  "userId": "5f9ece791fe1d4f5affddb30",
+  "likes": 0
+}
