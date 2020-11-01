@@ -3,10 +3,11 @@ POST http://localhost:3003/api/blogs
 Content-Type: application/json
 
 {
-  "title": "How to blog",
-  "author": "BlogKing",
+  "title": "Arto Hellas know hot to blog even better",
+  "author": "Hellas",
   "url": "https://www.theworldsworstwebsiteever.com",
-  "likes": 22
+  "userId": "5f9e6fcfd7ddfcb123d50e12",
+  "likes": 0
 }
 
 ###
@@ -18,11 +19,20 @@ POST http://localhost:3003/api/users
 Content-Type: application/json
 
 {
-  "username": "BlogKing",
-  "name": "Master of the blog",
-  "password": "secret"
+  "username": "Hellas",
+  "name": "Arto",
+  "password": "password"
 }
 
 ###
 
 GET http://localhost:3003/api/users
+
+###
+POST http://localhost:3003/api/login
+Content-Type: application/json
+
+{
+  "username": "hellas",
+  "password": "prrkl"
+}
