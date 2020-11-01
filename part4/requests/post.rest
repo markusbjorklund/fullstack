@@ -40,7 +40,7 @@ Content-Type: application/json
 ###
 POST http://localhost:3003/api/blogs
 Content-Type: application/json
-Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkxhYmFuIiwiaWQiOiI1ZjllY2U3OTFmZTFkNGY1YWZmZGRiMzAiLCJpYXQiOjE2MDQyNDcxNDV9.2-1nuysM7KkqK3Q2b4sDxYNsKBFPRg1spisN2x_5TWU
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkxhYmFuIiwiaWQiOiI1ZjllY2U3OTFmZTFkNGY1YWZmZGRiMzAiLCJpYXQiOjE2MDQyNDkzMDN9.Cl7l4NIoi5CV0sNAzBdpEwuo6K9LH1Pbhyg1rOOzEZ4
 
 {
   "title": "Labans blogg",
@@ -48,4 +48,13 @@ Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkxhY
   "url": "https://www.theworldsworstwebsiteever.com",
   "userId": "5f9ece791fe1d4f5affddb30",
   "likes": 0
+}
+
+###
+DELETE http://localhost:3003/api/blogs/5f9eedd7898a740fd02a692a
+Content-Type: application/json
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkxhYmFuIiwiaWQiOiI1ZjllY2U3OTFmZTFkNGY1YWZmZGRiMzAiLCJpYXQiOjE2MDQyNDkzMDN9.Cl7l4NIoi5CV0sNAzBdpEwuo6K9LH1Pbhyg1rOOzEZ4
+
+{
+  "username": "Laban"
 }
