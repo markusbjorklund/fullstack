@@ -13,7 +13,7 @@ Deadline is **6.12.2020**.
 * [Part 2](#part-2) - Submitted :rocket:
 * [Part 3](#part-3) - Submitted :rocket: 
 * [Part 4](#part-4) - Submitted 21/22 :rocket:  
-* [Part 5](#part-5) - Reading 
+* [Part 5](#part-5) - Reading :glasses: 
 * [Part 6](#part-6) -  
 * [Part 7](#part-7) -  
 * [Part 8](#part-8) -  
