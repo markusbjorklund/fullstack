@@ -2,11 +2,11 @@
 
 My tasklist for the Full stack open 2020. This is part of Centrias "Road to Software Engineering". 
 
-The course consist of a total of 10 parts. Part 1-8 needs to be completed before the deadline. Credits will be given for part 9-10.
+The course consist of a total of 10 parts. ~~Part 1-8~~ Part 1-7 needs to be completed before the deadline. Part 8 is voluntary. Credits will also be given for part 9-10.
 
 URL to submit exercises: https://studies.cs.helsinki.fi/stats/courses/fullstackopen
 
-Deadline is **6.12.2020**.
+Deadline is ~~**6.12.2020**~~ **13.12.2020.**
 
 * [Part 0](#part-0) - Submitted :rocket:
 * [Part 1](#part-1) - Submitted :rocket:
