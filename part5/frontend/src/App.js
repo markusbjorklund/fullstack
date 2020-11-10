@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react'
-import Blog from './components/Blog'
-import Notification from './components/Notification'
+import React, { useState, useEffect } from 'react' // eslint-disable-line no-unused-vars
+import Blog from './components/Blog' // eslint-disable-line no-unused-vars
+import Notification from './components/Notification' // eslint-disable-line no-unused-vars
 import blogService from './services/blogs'
 import loginService from './services/login'
 
@@ -54,7 +54,7 @@ const App = () => {
       setUsername('')
       setPassword('')
     } catch (exception) {
-      notifyWith(`wrong username or password`, 'error')
+      notifyWith('wrong username or password', 'error')
     }
   }
 
@@ -87,7 +87,7 @@ const App = () => {
       <h2>log in to application</h2>
       <div>
         username
-          <input
+        <input
           type="text"
           value={username}
           name="Username"
@@ -96,7 +96,7 @@ const App = () => {
       </div>
       <div>
         password
-          <input
+        <input
           type="password"
           value={password}
           name="Password"
@@ -109,7 +109,7 @@ const App = () => {
 
   return (
     <div>
-      <Notification notification={notification} />
+      <Notification message={notification} />
       {user === null ?
         loginForm() :
         <div>
@@ -119,7 +119,7 @@ const App = () => {
           <form onSubmit={addBlog}>
             <div>
               title:
-            <input
+              <input
                 type="text"
                 value={newTitle}
                 name="title"
@@ -128,7 +128,8 @@ const App = () => {
             </div>
             <div>
               author:
-            <input type="text"
+              <input
+                type="text"
                 value={newAuthor}
                 name="author"
                 onChange={({ target }) => setNewAuthor(target.value)}
@@ -136,7 +137,8 @@ const App = () => {
             </div>
             <div>
               url:
-            <input type="text" value={newUrl}
+              <input
+                type="text" value={newUrl}
                 name="url"
                 onChange={({ target }) => setNewUrl(target.value)}
               />
