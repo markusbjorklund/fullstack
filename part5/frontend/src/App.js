@@ -109,7 +109,7 @@ const App = () => {
 
   return (
     <div>
-      <Notification message={notification} />
+      <Notification notification={notification} />
       {user === null ?
         loginForm() :
         <div>
