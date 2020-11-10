@@ -11,7 +11,7 @@ const App = () => {
   const [newUrl, setNewUrl] = useState('')
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
-  const [errorMessage, setErrorMessage] = useState(null)
+  const [notification, setNotification] = useState(null)
   const [user, setUser] = useState(null)
 
   useEffect(() => {
@@ -28,6 +28,13 @@ const App = () => {
       blogService.setToken(user.token)
     }
   }, [])
+
+  const notifyWith = (message, type = 'success') => {
+    setNotification({ message, type })
+    setTimeout(() => {
+      setNotification(null)
+    }, 5000)
+  }
 
   const handleLogin = async (event) => {
     event.preventDefault()
@@ -47,10 +54,7 @@ const App = () => {
       setUsername('')
       setPassword('')
     } catch (exception) {
-      setErrorMessage('Wrong credentials')
-      setTimeout(() => {
-        setErrorMessage(null)
-      }, 5000)
+      notifyWith(`wrong username or password`, 'error')
     }
   }
 
@@ -74,6 +78,7 @@ const App = () => {
         setNewTitle('')
         setNewAuthor('')
         setNewUrl('')
+        notifyWith(`a new blog ${newTitle} by ${newAuthor} added`)
       })
   }
 
@@ -104,7 +109,7 @@ const App = () => {
 
   return (
     <div>
-      <Notification message={errorMessage} />
+      <Notification notification={notification} />
       {user === null ?
         loginForm() :
         <div>
