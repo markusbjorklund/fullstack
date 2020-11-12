@@ -8,9 +8,6 @@ import loginService from './services/login'
 
 const App = () => {
   const [blogs, setBlogs] = useState([])
-  const [newTitle, setNewTitle] = useState('')
-  const [newAuthor, setNewAuthor] = useState('')
-  const [newUrl, setNewUrl] = useState('')
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const [notification, setNotification] = useState(null)
@@ -66,23 +63,13 @@ const App = () => {
     window.localStorage.removeItem('loggedBlogappUser')
   }
 
-  const addBlog = (event) => {
-    event.preventDefault()
-    const blogObject = {
-      title: newTitle,
-      author: newAuthor,
-      url: newUrl
-    }
-
+  const addBlog = (blogObject) => {
     blogFormRef.current.toggleVisibility()
     blogService
       .create(blogObject)
       .then(returnedBlog => {
         setBlogs(blogs.concat(returnedBlog))
-        setNewTitle('')
-        setNewAuthor('')
-        setNewUrl('')
-        notifyWith(`a new blog ${newTitle} by ${newAuthor} added`)
+        notifyWith(`a new blog ${blogObject.newTitle} by ${blogObject.newAuthor} added`)
       })
   }
 
@@ -120,15 +107,7 @@ const App = () => {
           <h2>blogs</h2>
           <p>{user.name} logged-in <input type='button' value='logout' onClick={handleLogOut} /></p>
           <Toggleable buttonLabel="new blogpost" ref={blogFormRef}>
-            <BlogForm
-              newTitle={newTitle}
-              newAuthor={newAuthor}
-              newUrl={newUrl}
-              handleTitleChange={({ target }) => setNewTitle(target.value)}
-              handleAuthorChange={({ target }) => setNewAuthor(target.value)}
-              handleUrlChange={({ target }) => setNewUrl(target.value)}
-              handleSubmit={addBlog}
-            />
+            <BlogForm createBlog={addBlog} />
           </Toggleable>
           {blogs.map(blog =>
             <Blog key={blog.id} blog={blog} />

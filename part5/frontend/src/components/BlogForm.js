@@ -1,25 +1,34 @@
-import React from 'react' // eslint-disable-line no-unused-vars
+import React, { useState } from 'react' // eslint-disable-line no-unused-vars
 
-const BlogForm = ({
-  handleSubmit,
-  handleTitleChange,
-  handleAuthorChange,
-  handleUrlChange,
-  newTitle,
-  newAuthor,
-  newUrl
-}) => {
+const BlogForm = ({ createBlog }) => {
+  const [newTitle, setNewTitle] = useState('')
+  const [newAuthor, setNewAuthor] = useState('')
+  const [newUrl, setNewUrl] = useState('')
+
+  const addBlog = (event) => {
+    event.preventDefault()
+    createBlog({
+      title: newTitle,
+      author: newAuthor,
+      url: newUrl,
+    })
+
+    setNewTitle('')
+    setNewAuthor('')
+    setNewUrl('')
+  }
+
   return (
     <>
       <h2>create new</h2>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={addBlog}>
         <div>
           title:
           <input
             type="text"
             value={newTitle}
             name="title"
-            onChange={handleTitleChange}
+            onChange={({ target }) => setNewTitle(target.value)}
           />
         </div>
         <div>
@@ -28,7 +37,7 @@ const BlogForm = ({
             type="text"
             value={newAuthor}
             name="author"
-            onChange={handleAuthorChange}
+            onChange={({ target }) => setNewAuthor(target.value)}
           />
         </div>
         <div>
@@ -37,7 +46,7 @@ const BlogForm = ({
             type="text"
             value={newUrl}
             name="url"
-            onChange={handleUrlChange}
+            onChange={({ target }) => setNewUrl(target.value)}
           />
         </div>
         <button type="submit">create</button>
