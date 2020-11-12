@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react' // eslint-disable-line no-unused-vars
 import Blog from './components/Blog' // eslint-disable-line no-unused-vars
 import Notification from './components/Notification' // eslint-disable-line no-unused-vars
+import BlogForm from './components/BlogForm' // eslint-disable-line no-unused-vars
 import blogService from './services/blogs'
 import loginService from './services/login'
 
@@ -123,38 +124,16 @@ const App = () => {
             <button onClick={() => setBlogFormVisible(true)}>new blogpost</button>
           </div>
           <div style={showWhenVisible}>
-            <h2>create new</h2>
-            <form onSubmit={addBlog}>
-              <div>
-                title:
-                <input
-                  type="text"
-                  value={newTitle}
-                  name="title"
-                  onChange={({ target }) => setNewTitle(target.value)}
-                />
-              </div>
-              <div>
-                author:
-                <input
-                  type="text"
-                  value={newAuthor}
-                  name="author"
-                  onChange={({ target }) => setNewAuthor(target.value)}
-                />
-              </div>
-              <div>
-                url:
-                <input
-                  type="text"
-                  value={newUrl}
-                  name="url"
-                  onChange={({ target }) => setNewUrl(target.value)}
-                />
-              </div>
-              <button type="submit">create</button>
-              <button onClick={() => setBlogFormVisible(false)}>cancel</button>
-            </form>
+            <BlogForm
+              newTitle={newTitle}
+              newAuthor={newAuthor}
+              newUrl={newUrl}
+              handleTitleChange={({ target }) => setNewTitle(target.value)}
+              handleAuthorChange={({ target }) => setNewAuthor(target.value)}
+              handleUrlChange={({ target }) => setNewUrl(target.value)}
+              handleSubmit={addBlog}
+            />
+            <button onClick={() => setBlogFormVisible(false)}>cancel</button>
           </div>
           {blogs.map(blog =>
             <Blog key={blog.id} blog={blog} />
