@@ -105,7 +105,7 @@ const App = () => {
         loginForm() :
         <div>
           <h2>blogs</h2>
-          <p>{user.name} logged-in <input type='button' value='logout' onClick={handleLogOut} /></p>
+          <p>{user.name} logged in <input type='button' value='logout' onClick={handleLogOut} /></p>
           <Toggleable buttonLabel="new blogpost" ref={blogFormRef}>
             <BlogForm createBlog={addBlog} />
           </Toggleable>
