@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react' // eslint-disable-line no-unused-vars
+import React, { useState, useEffect, useRef } from 'react' // eslint-disable-line no-unused-vars
 import Blog from './components/Blog' // eslint-disable-line no-unused-vars
 import Notification from './components/Notification' // eslint-disable-line no-unused-vars
 import BlogForm from './components/BlogForm' // eslint-disable-line no-unused-vars
+import Toggleable from './components/Toggleable' // eslint-disable-line no-unused-vars
 import blogService from './services/blogs'
 import loginService from './services/login'
 
@@ -14,7 +15,7 @@ const App = () => {
   const [password, setPassword] = useState('')
   const [notification, setNotification] = useState(null)
   const [user, setUser] = useState(null)
-  const [blogFormVisible, setBlogFormVisible] = useState(false)
+  const blogFormRef = useRef()
 
   useEffect(() => {
     blogService.getAll().then(blogs =>
@@ -73,6 +74,7 @@ const App = () => {
       url: newUrl
     }
 
+    blogFormRef.current.toggleVisibility()
     blogService
       .create(blogObject)
       .then(returnedBlog => {
@@ -109,9 +111,6 @@ const App = () => {
     </form>
   )
 
-  const hideWhenVisible = { display: blogFormVisible ? 'none' : '' }
-  const showWhenVisible = { display: blogFormVisible ? '' : 'none' }
-
   return (
     <div>
       <Notification notification={notification} />
@@ -120,10 +119,7 @@ const App = () => {
         <div>
           <h2>blogs</h2>
           <p>{user.name} logged-in <input type='button' value='logout' onClick={handleLogOut} /></p>
-          <div style={hideWhenVisible}>
-            <button onClick={() => setBlogFormVisible(true)}>new blogpost</button>
-          </div>
-          <div style={showWhenVisible}>
+          <Toggleable buttonLabel="new blogpost" ref={blogFormRef}>
             <BlogForm
               newTitle={newTitle}
               newAuthor={newAuthor}
@@ -133,8 +129,7 @@ const App = () => {
               handleUrlChange={({ target }) => setNewUrl(target.value)}
               handleSubmit={addBlog}
             />
-            <button onClick={() => setBlogFormVisible(false)}>cancel</button>
-          </div>
+          </Toggleable>
           {blogs.map(blog =>
             <Blog key={blog.id} blog={blog} />
           )}
@@ -143,6 +138,5 @@ const App = () => {
     </div>
   )
 }
-
 
 export default App
