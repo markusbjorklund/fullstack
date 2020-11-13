@@ -1,6 +1,6 @@
 import React, { useState } from 'react' // eslint-disable-line no-unused-vars
 
-const Blog = ({ blog }) => {
+const Blog = ({ blog, addLike }) => {
   const [viewAll, setViewAll] = useState(false)
   const hideViewAll = { display: viewAll ? 'none' : '' }
   const showViewAll = { display: viewAll ? '' : 'none' }
@@ -20,7 +20,7 @@ const Blog = ({ blog }) => {
       <div style={showViewAll}>
         {blog.title} by {blog.author} <button onClick={() => setViewAll(false)}>hide</button>
         <p>{blog.url}</p>
-        <p>likes {blog.likes} <button>like</button></p>
+        <p>likes {blog.likes} <button onClick={addLike}>like</button></p>
         <p>{blog.user.name}</p>
       </div>
     </div>

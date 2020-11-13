@@ -67,9 +67,33 @@ const App = () => {
     blogFormRef.current.toggleVisibility()
     blogService
       .create(blogObject)
-      .then(returnedBlog => {
-        setBlogs(blogs.concat(returnedBlog))
+      .then(updatedBlog => {
+        setBlogs(blogs.concat(updatedBlog))
         notifyWith(`a new blog ${blogObject.newTitle} by ${blogObject.newAuthor} added`)
+      })
+  }
+
+  const addLike = (id) => {
+    const updateBlog = blogs.find(blog => blog.id === id)
+    const setBlog = {
+      user: updateBlog.user.id,
+      likes: (updateBlog.likes + 1),
+      author: updateBlog.author,
+      title: updateBlog.title,
+      url: updateBlog.url
+    }
+
+    blogService
+      .update(id, setBlog)
+      .then(updatedBlog => {
+        updatedBlog.user = updateBlog.user
+        setBlogs(blogs.map(blog => blog.id !== updateBlog.id ? blog : updatedBlog))
+      })
+      .catch(error => {
+        notifyWith(`problem with updating the blog ${error}`)
+        setTimeout(() => {
+          setNotification(null)
+        }, 5000)
       })
   }
 
@@ -109,7 +133,10 @@ const App = () => {
             <BlogForm createBlog={addBlog} />
           </Toggleable>
           {blogs.map(blog =>
-            <Blog key={blog.id} blog={blog} />
+            <Blog
+              key={blog.id}
+              blog={blog}
+              addLike={() => addLike(blog.id)} />
           )}
         </div>
       }
