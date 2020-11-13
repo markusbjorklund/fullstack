@@ -61,3 +61,30 @@ test('url and number of likes are shown when view-button has been clicked', () =
   expect(divVisible).toHaveTextContent(blog.likes)
   expect(divVisible).not.toHaveStyle('display: none')
 })
+
+test('like button is clicked twice', () => {
+  const user = {
+    username: 'snake',
+    name: 'Snake Plissken'
+  }
+
+  const blog = {
+    title: 'Snakes in the grass',
+    author: 'Snakeman',
+    url: 'www.snakes.com',
+    likes: '21',
+    user: 'user'
+  }
+
+  const mockHandler = jest.fn()
+
+  const component = render(
+    <Blog blog={blog} user={user} addLike={mockHandler} />
+  )
+
+  const button = component.getByText('like')
+  fireEvent.click(button)
+  fireEvent.click(button)
+
+  expect(mockHandler.mock.calls).toHaveLength(2)
+})
