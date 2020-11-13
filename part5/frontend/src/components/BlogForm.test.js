@@ -1,7 +1,7 @@
 import React from 'react'
 import { render, fireEvent } from '@testing-library/react'
 import '@testing-library/jest-dom/extend-expect'
-import BlogForm from './BLogForm'
+import BlogForm from './BlogForm'
 
 test('check if the blogform works correctly', () => {
   const createBlog = jest.fn()
