@@ -97,6 +97,10 @@ const App = () => {
       })
   }
 
+  const sortedBlogs = (a, b) => {
+    return b.likes - a.likes
+  }
+
   const loginForm = () => (
     <form onSubmit={handleLogin}>
       <h2>log in to application</h2>
@@ -132,7 +136,7 @@ const App = () => {
           <Toggleable buttonLabel="new blogpost" ref={blogFormRef}>
             <BlogForm createBlog={addBlog} />
           </Toggleable>
-          {blogs.map(blog =>
+          {blogs.sort(sortedBlogs).map(blog =>
             <Blog
               key={blog.id}
               blog={blog}
