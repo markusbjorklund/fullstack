@@ -1,24 +1,24 @@
 module.exports = {
   'env': {
-    'commonjs': true,
+    'browser': true,
     'es6': true,
-    'node': true,
-    'jest': true,
-    'browser': true
+    'jest/globals': true,
+    'node': true
   },
-  'extends': 'eslint:recommended',
-  'globals': {
-    'Atomics': 'readonly',
-    'SharedArrayBuffer': 'readonly'
-  },
-  'parser': 'babel-eslint',
+  'extends': [
+    'eslint:recommended',
+    'plugin:react/recommended'
+  ],
   'parserOptions': {
-    'sourceType': 'module',
+    'ecmaFeatures': {
+      'jsx': true
+    },
     'ecmaVersion': 2018,
-    "ecmaFeatures": {
-      "experimentalObjectRestSpread": true
-    }
+    'sourceType': 'module'
   },
+  'plugins': [
+    'react', 'jest'
+  ],
   'rules': {
     'indent': [
       'error',
@@ -44,6 +44,12 @@ module.exports = {
     'arrow-spacing': [
       'error', { 'before': true, 'after': true }
     ],
-    'no-console': 0
+    'no-console': 0,
+    'react/prop-types': 0
+  },
+  'settings': {
+    'react': {
+      'version': 'detect'
+    }
   }
 }
