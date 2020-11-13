@@ -1,8 +1,8 @@
-import React, { useState, useEffect, useRef } from 'react' // eslint-disable-line no-unused-vars
-import Blog from './components/Blog' // eslint-disable-line no-unused-vars
-import Notification from './components/Notification' // eslint-disable-line no-unused-vars
-import BlogForm from './components/BlogForm' // eslint-disable-line no-unused-vars
-import Toggleable from './components/Toggleable' // eslint-disable-line no-unused-vars
+import React, { useState, useEffect, useRef } from 'react'
+import Blog from './components/Blog'
+import Notification from './components/Notification'
+import BlogForm from './components/BlogForm'
+import Toggleable from './components/Toggleable'
 import blogService from './services/blogs'
 import loginService from './services/login'
 
@@ -69,7 +69,7 @@ const App = () => {
       .create(blogObject)
       .then(updatedBlog => {
         setBlogs(blogs.concat(updatedBlog))
-        notifyWith(`a new blog ${blogObject.newTitle} by ${blogObject.newAuthor} added`)
+        notifyWith(`a new blog ${blogObject.title} by ${blogObject.author} added`)
       })
   }
 
@@ -90,11 +90,27 @@ const App = () => {
         setBlogs(blogs.map(blog => blog.id !== updateBlog.id ? blog : updatedBlog))
       })
       .catch(error => {
-        notifyWith(`problem with updating the blog ${error}`)
+        notifyWith(`problem updating the blog, ${error}`)
         setTimeout(() => {
           setNotification(null)
         }, 5000)
       })
+  }
+
+  const deleteBlog = (id, title, author) => {
+    if (window.confirm(`Remove blog ${title} by ${author} ?`)) {
+      blogService
+        .deleteObject(id)
+        .then(() => {
+          setBlogs(blogs.filter(blog => blog.id !== id))
+        })
+        .catch(error => {
+          notifyWith(`${title} has already been deleted, ${error}`)
+          setTimeout(() => {
+            setNotification(null)
+          }, 5000)
+        })
+    }
   }
 
   const sortedBlogs = (a, b) => {
@@ -140,7 +156,10 @@ const App = () => {
             <Blog
               key={blog.id}
               blog={blog}
-              addLike={() => addLike(blog.id)} />
+              addLike={() => addLike(blog.id)}
+              user={user}
+              deleteBlog={deleteBlog}
+            />
           )}
         </div>
       }
