@@ -23,7 +23,7 @@ const Blog = ({ blog, addLike, user, deleteBlog }) => {
   }
   return (
     <div style={blogStyle}>
-      <div style={hideViewAll}>
+      <div style={hideViewAll} className='blog'>
         {blog.title} by {blog.author} <button onClick={() => setViewAll(true)}>view</button>
       </div>
       <div style={showViewAll}>
