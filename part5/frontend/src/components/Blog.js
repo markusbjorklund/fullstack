@@ -24,12 +24,12 @@ const Blog = ({ blog, addLike, user, deleteBlog }) => {
   return (
     <div style={blogStyle}>
       <div style={hideViewAll} className='blog hidden'>
-        {blog.title} by {blog.author} <button onClick={() => setViewAll(true)}>view</button>
+        {blog.title} by {blog.author} <button id='view-button' onClick={() => setViewAll(true)}>view</button>
       </div>
       <div style={showViewAll} className='visible'>
-        {blog.title} by {blog.author} <button onClick={() => setViewAll(false)}>hide</button>
+        {blog.title} by {blog.author} <button id='hide-button' onClick={() => setViewAll(false)}>hide</button>
         <p>{blog.url}</p>
-        <p>likes {blog.likes} <button onClick={addLike}>like</button></p>
+        <p>likes {blog.likes} <button id='like-button' onClick={addLike}>like</button></p>
         <p>{blog.user.name}</p>
         <button style={showRemoveButton} onClick={removeBlog}>remove</button>
       </div>

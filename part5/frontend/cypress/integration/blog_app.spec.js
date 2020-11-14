@@ -33,7 +33,7 @@ describe('Blog app', function () {
       cy.get('.error').should('have.css', 'color', 'rgb(255, 0, 0)')
     })
 
-    describe.only('When logged in', function () {
+    describe('When logged in', function () {
       beforeEach(function () {
         cy.get('#username').type('snake')
         cy.get('#password').type('salasana')
@@ -50,7 +50,20 @@ describe('Blog app', function () {
 
         cy.contains('A dark night in NY by Snakeman')
         cy.get('.success').should('contain', 'A dark night in NY by Snakeman added')
+      })
 
+      it('A blog can be liked', function () {
+        cy.contains('new blogpost').click()
+        cy.get('html').should('contain', 'create new')
+        cy.get('#title').type('A dark night in NY')
+        cy.get('#author').type('Snakeman')
+        cy.get('#url').type('https://en.wikipedia.org/wiki/Snake_Plissken')
+        cy.get('#create-button').click()
+        cy.get('#view-button').click()
+        cy.get('#like-button').click()
+        cy.get('html').should('contain', 'likes 1')
+        cy.get('#like-button').click()
+        cy.get('html').should('contain', 'likes 2')
       })
     })
   })
