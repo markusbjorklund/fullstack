@@ -75,7 +75,7 @@ describe('Blog app', function () {
         cy.get('#create-button').click()
         cy.get('#view-button').click()
         cy.get('#delete-button').click()
-        cy.get('#title').should('not.contain', 'A dark night in NY')
+        cy.get('.visible').should('not.contain', 'A dark night in NY')
       })
     })
   })
