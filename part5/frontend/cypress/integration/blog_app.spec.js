@@ -65,6 +65,18 @@ describe('Blog app', function () {
         cy.get('#like-button').click()
         cy.get('html').should('contain', 'likes 2')
       })
+
+      it('A blog can be deleted', function () {
+        cy.contains('new blogpost').click()
+        cy.get('html').should('contain', 'create new')
+        cy.get('#title').type('A dark night in NY')
+        cy.get('#author').type('Snakeman')
+        cy.get('#url').type('https://en.wikipedia.org/wiki/Snake_Plissken')
+        cy.get('#create-button').click()
+        cy.get('#view-button').click()
+        cy.get('#delete-button').click()
+        cy.get('#title').should('not.contain', 'A dark night in NY')
+      })
     })
   })
 })
