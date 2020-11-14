@@ -35,9 +35,7 @@ describe('Blog app', function () {
 
     describe('When logged in', function () {
       beforeEach(function () {
-        cy.get('#username').type('snake')
-        cy.get('#password').type('salasana')
-        cy.get('#login-button').click()
+        cy.login({ username: 'snake', password: 'salasana' })
       })
 
       it('A blog can be created', function () {
@@ -76,6 +74,19 @@ describe('Blog app', function () {
         cy.get('#view-button').click()
         cy.get('#delete-button').click()
         cy.get('.visible').should('not.contain', 'A dark night in NY')
+      })
+
+      describe('Blogs are sorted by likes', function () {
+        beforeEach(function () {
+          cy.createBlog({ title: 'A sunny day (with 2 likes)', url: 'https://en.wikipedia.org/wiki/Snake_Plissken', author: 'Snake Plissken', likes: '2' })
+          cy.createBlog({ title: 'A dark night (with 100 likes)', url: 'https://en.wikipedia.org/wiki/Snake_Plissken', author: 'Snake Plissken', likes: '100' })
+          cy.createBlog({ title: 'A dark night (with no likes)', url: 'https://en.wikipedia.org/wiki/Snake_Plissken', author: 'Snake Plissken' })
+        })
+
+        it('Blogs with most likes is at top', function () {
+          cy.get('.visible').eq(0).should('contain', 'likes 100')
+          cy.get('.visible').eq(1).should('contain', 'likes 2')
+        })
       })
     })
   })
