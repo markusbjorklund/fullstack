@@ -3,9 +3,7 @@ const initialState = ''
 const notificationReducer = (state = initialState, action) => {
   switch (action.type) {
     case 'NEW NOTIFICATION':
-      let stateCopy = { ...state}
-      stateCopy = action.notification
-      return stateCopy 
+      return [...state, action.notification]
     case 'NO NOTIFICATION':
       return initialState
     default:

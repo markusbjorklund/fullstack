@@ -5,12 +5,13 @@ import { createNotification, clearNotification } from '../reducers/notificationR
 
 const Anecdotes = () => {
   const anecdotes = useSelector(state => state.anecdotes)
+  const filter = useSelector(state => state.filter)
   const dispatch = useDispatch()
 
   const clear = () => dispatch(clearNotification())
   const vote = (id, content) => {
     dispatch(voteAnecdote(id))
-    dispatch(createNotification(`you voted ${content}`))
+    dispatch(createNotification(`you voted on ${content}`))
     setTimeout(clear, 5000)
   }
 
@@ -18,9 +19,14 @@ const Anecdotes = () => {
     return anecdotes.sort((a, b) => b.votes - a.votes)
   }
 
+  const filterAnecdotes = () => {
+    const filteredAnecdotes = [...anecdotes].filter(a => a.content.toLowerCase().includes(filter.toLowerCase()))
+    return filteredAnecdotes
+  }
+
   return (
     <>
-      {sortedAnecdotes(anecdotes).map(anecdote =>
+      {sortedAnecdotes(filterAnecdotes()).map(anecdote =>
         <div key={anecdote.id}>
           <div>
             {anecdote.content}
