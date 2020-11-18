@@ -2,7 +2,7 @@
   "anecdotes": [
     {
       "content": "this is last test for the night",
-      "votes": 5,
+      "votes": 7,
       "id": 5
     },
     {
@@ -74,6 +74,16 @@
       "content": "testing with 5 seconds...",
       "votes": 0,
       "id": 19
+    },
+    {
+      "content": "A NEW ANECDOTE",
+      "votes": 0,
+      "id": 20
+    },
+    {
+      "content": "DOES THIS WORK",
+      "votes": 0,
+      "id": 21
     }
   ]
 }
