@@ -2,27 +2,27 @@
   "anecdotes": [
     {
       "content": "this is last test for the night",
-      "votes": 7,
+      "votes": 16,
       "id": 5
     },
     {
       "content": "new anecdote",
-      "votes": 4,
+      "votes": 29,
       "id": 6
     },
     {
       "content": "gregerg",
-      "votes": 1,
+      "votes": 3,
       "id": 7
     },
     {
       "content": "no events",
-      "votes": 0,
+      "votes": 1,
       "id": 8
     },
     {
       "content": "this is a nee anecdote",
-      "votes": 0,
+      "votes": 1,
       "id": 9
     },
     {
@@ -32,17 +32,17 @@
     },
     {
       "content": "fdsfs",
-      "votes": 0,
+      "votes": 1,
       "id": 11
     },
     {
       "content": "a new anecdote",
-      "votes": 0,
+      "votes": 12,
       "id": 12
     },
     {
       "content": "an anecdote that will break the code",
-      "votes": 0,
+      "votes": 2,
       "id": 13
     },
     {
@@ -52,7 +52,7 @@
     },
     {
       "content": "this is a new anecdote",
-      "votes": 0,
+      "votes": 2,
       "id": 15
     },
     {
@@ -82,7 +82,7 @@
     },
     {
       "content": "DOES THIS WORK",
-      "votes": 0,
+      "votes": 1,
       "id": 21
     }
   ]
