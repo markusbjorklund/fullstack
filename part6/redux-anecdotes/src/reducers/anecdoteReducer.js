@@ -31,20 +31,23 @@ export const voteAnecdote = (id) => {
 }
 
 export const createAnecdote = (content) => {
-  return {
-    type: 'NEW ANECDOTE',
-    data: content
-  }
-}
-
-export const initializeAnecdote = () => {
   return async dispatch => {
-    const anecdotes = await anecdoteService.getAll()
+    const newAnecdote = await anecdoteService.createNew(content)
     dispatch({
-      type: 'INIT ANECDOTE',
-      data: anecdotes
+      type: 'NEW ANECDOTE',
+      data: newAnecdote
     })
   }
 }
 
-export default reducer
+  export const initializeAnecdote = () => {
+    return async dispatch => {
+      const anecdotes = await anecdoteService.getAll()
+      dispatch({
+        type: 'INIT ANECDOTE',
+        data: anecdotes
+      })
+    }
+  }
+
+  export default reducer
