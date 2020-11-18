@@ -7,7 +7,7 @@
     },
     {
       "content": "new anecdote",
-      "votes": 3,
+      "votes": 4,
       "id": 6
     },
     {
@@ -69,6 +69,11 @@
       "content": "will it show now?",
       "votes": 0,
       "id": 18
+    },
+    {
+      "content": "testing with 5 seconds...",
+      "votes": 0,
+      "id": 19
     }
   ]
 }

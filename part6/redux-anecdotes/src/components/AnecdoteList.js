@@ -10,7 +10,7 @@ const Anecdotes = () => {
 
   const vote = (id, anecdote) => {
     dispatch(voteAnecdote(id, anecdote))
-    dispatch(createNotification(`you voted on ${anecdote.content}`, 10))
+    dispatch(createNotification(`you voted on ${anecdote.content}`, 5))
   }
 
   const sortedAnecdotes = (anecdotes) => {
