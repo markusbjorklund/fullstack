@@ -2,7 +2,7 @@
   "anecdotes": [
     {
       "content": "this is last test for the night",
-      "votes": 0,
+      "votes": 3,
       "id": 5
     },
     {
@@ -54,41 +54,6 @@
       "content": "this is a new anecdote",
       "votes": 0,
       "id": 15
-    },
-    {
-      "content": "enter sandman",
-      "votes": 0,
-      "id": 16
-    },
-    {
-      "content": "will this work now",
-      "votes": 0,
-      "id": 17
-    },
-    {
-      "content": "This is a new anecdote",
-      "votes": 0,
-      "id": 18
-    },
-    {
-      "content": "guess it wil not work now either",
-      "votes": 0,
-      "id": 19
-    },
-    {
-      "content": "does this async work as it should",
-      "votes": 0,
-      "id": 20
-    },
-    {
-      "content": "hell yeas it does!",
-      "votes": 0,
-      "id": 21
-    },
-    {
-      "content": "clean up. deos it still work?",
-      "votes": 0,
-      "id": 22
     }
   ]
 }
