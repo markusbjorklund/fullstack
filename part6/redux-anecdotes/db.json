@@ -2,7 +2,7 @@
   "anecdotes": [
     {
       "content": "this is last test for the night",
-      "votes": 3,
+      "votes": 4,
       "id": 5
     },
     {
@@ -12,7 +12,7 @@
     },
     {
       "content": "gregerg",
-      "votes": 0,
+      "votes": 1,
       "id": 7
     },
     {
@@ -27,7 +27,7 @@
     },
     {
       "content": "this is a new anecdote",
-      "votes": 0,
+      "votes": 1,
       "id": 10
     },
     {
