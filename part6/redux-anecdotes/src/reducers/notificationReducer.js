@@ -3,7 +3,7 @@ const initialState = ''
 const notificationReducer = (state = initialState, action) => {
   switch (action.type) {
     case 'NEW NOTIFICATION':
-      return [...state, action.notification]
+      return action.notification
     case 'NO NOTIFICATION':
       return initialState
     default:
@@ -11,16 +11,13 @@ const notificationReducer = (state = initialState, action) => {
   }
 }
 
-let timeoutID
-
 export const createNotification = (notification, duration) => {
   return dispatch => {
     dispatch({
       type: 'NEW NOTIFICATION',
       notification
     })
-    clearTimeout(timeoutID)
-    timeoutID = setTimeout(() => {
+    setTimeout(() => {
       dispatch(clearNotification())
     }, duration * 1000)
   }

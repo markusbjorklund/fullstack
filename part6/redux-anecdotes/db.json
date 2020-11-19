@@ -2,87 +2,87 @@
   "anecdotes": [
     {
       "content": "this is last test for the night",
-      "votes": 16,
+      "votes": 27,
       "id": 5
     },
     {
       "content": "new anecdote",
-      "votes": 29,
+      "votes": 40,
       "id": 6
     },
     {
       "content": "gregerg",
-      "votes": 3,
+      "votes": 18,
       "id": 7
     },
     {
       "content": "no events",
-      "votes": 1,
+      "votes": 11,
       "id": 8
     },
     {
       "content": "this is a nee anecdote",
-      "votes": 1,
+      "votes": 10,
       "id": 9
     },
     {
       "content": "this is a new anecdote",
-      "votes": 1,
+      "votes": 14,
       "id": 10
     },
     {
       "content": "fdsfs",
-      "votes": 1,
+      "votes": 10,
       "id": 11
     },
     {
       "content": "a new anecdote",
-      "votes": 12,
+      "votes": 28,
       "id": 12
     },
     {
       "content": "an anecdote that will break the code",
-      "votes": 2,
+      "votes": 5,
       "id": 13
     },
     {
       "content": "edfefd",
-      "votes": 0,
+      "votes": 7,
       "id": 14
     },
     {
       "content": "this is a new anecdote",
-      "votes": 2,
+      "votes": 10,
       "id": 15
     },
     {
       "content": "this is a new anecdote",
-      "votes": 0,
+      "votes": 6,
       "id": 16
     },
     {
       "content": "will this show",
-      "votes": 0,
+      "votes": 6,
       "id": 17
     },
     {
       "content": "will it show now?",
-      "votes": 0,
+      "votes": 8,
       "id": 18
     },
     {
       "content": "testing with 5 seconds...",
-      "votes": 0,
+      "votes": 6,
       "id": 19
     },
     {
       "content": "A NEW ANECDOTE",
-      "votes": 0,
+      "votes": 6,
       "id": 20
     },
     {
       "content": "DOES THIS WORK",
-      "votes": 1,
+      "votes": 7,
       "id": 21
     }
   ]
