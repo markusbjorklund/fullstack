@@ -14,7 +14,7 @@ Deadline is ~~**6.12.2020**~~ **13.12.2020.**
 * [Part 3](#part-3) - Submitted :rocket: 
 * [Part 4](#part-4) - Submitted 21/22 :rocket:  
 * [Part 5](#part-5) - Submitted :rocket: 
-* [Part 6](#part-6) - Reading :eyeglasses: 
+* [Part 6](#part-6) - Submitted :rocket: 
 * [Part 7](#part-7) -  
 * [Part 8](#part-8) -  
 * [Part 9](#part-9) - 
@@ -192,15 +192,15 @@ https://fullstackopen.com/en/part6
 - [x] 6.10
 - [x] 6.11
 - [x] 6.12
-- [ ] 6.13
-- [ ] 6.14
-- [ ] 6.15
-- [ ] 6.16
-- [ ] 6.17
-- [ ] 6.18
-- [ ] 6.19
-- [ ] 6.20
-- [ ] 6.21
+- [x] 6.13
+- [x] 6.14
+- [x] 6.15
+- [x] 6.16
+- [x] 6.17
+- [x] 6.18
+- [x] 6.19
+- [x] 6.20
+- [x] 6.21
 
 ## Part 7
 
