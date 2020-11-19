@@ -207,6 +207,7 @@ https://fullstackopen.com/en/part6
 #### React router, custom hooks, styling app with CSS and webpack
 
 https://fullstackopen.com/en/part7
+https://centria.github.io/fullstack/#course-feedback
 
 - [ ] 7.1
 - [ ] 7.2
