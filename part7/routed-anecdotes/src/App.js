@@ -65,21 +65,26 @@ const CreateNew = (props) => {
     info.reset()
   }
 
+  const inputField = (object) => {
+    const { reset, ...passedValue } = object
+    return passedValue
+  }
+
   return (
     <div>
       <h2>create a new anecdote</h2>
       <form onSubmit={handleSubmit} onReset={handleReset}>
         <div>
           content
-          <input {...content} />
+          <input {...inputField(content)} />
         </div>
         <div>
           author
-          <input name='author' {...author} />
+          <input name='author' {...inputField(author)} />
         </div>
         <div>
           url for more info
-          <input name='info' {...info} />
+          <input name='info' {...inputField(info)} />
         </div>
         <button type='submit'>create</button>
         <button type='reset'>reset</button>
