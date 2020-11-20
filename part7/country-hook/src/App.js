@@ -17,9 +17,6 @@ const useField = (type) => {
 
 const useCountry = (name) => {
   const [country, setCountry] = useState(null)
-
-  console.log('country name', name)
-
   useEffect(() => {
     name === '' ? setCountry(null) :
       axios
@@ -33,9 +30,6 @@ const useCountry = (name) => {
           })
         })
   }, [name])
-
-  console.log('country in use', country)
-
   return country
 }
 
