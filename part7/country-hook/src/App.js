@@ -21,16 +21,17 @@ const useCountry = (name) => {
   console.log('country name', name)
 
   useEffect(() => {
-    axios
-      .get(`https://restcountries.eu/rest/v2/name/${name}?fullText=true`)
-      .then(response => {
-        setCountry({ data: { ...response.data[0] }, found: true })
-      })
-      .catch(
-        setCountry({
-          found: false
+    name === '' ? setCountry(null) :
+      axios
+        .get(`https://restcountries.eu/rest/v2/name/${name}?fullText=true`)
+        .then(response => {
+          setCountry({ data: { ...response.data[0] }, found: true })
         })
-      )
+        .catch(() => {
+          setCountry({
+            found: false
+          })
+        })
   }, [name])
 
   console.log('country in use', country)
