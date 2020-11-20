@@ -1,6 +1,6 @@
 import {
   BrowserRouter as Router,
-  Switch, Route, Link, useParams,
+  Switch, Route, Link, useParams, useHistory
 } from 'react-router-dom'
 
 import React, { useState } from 'react'
@@ -41,6 +41,7 @@ const Footer = () => (
 )
 
 const CreateNew = (props) => {
+  const history = useHistory()
   const [content, setContent] = useState('')
   const [author, setAuthor] = useState('')
   const [info, setInfo] = useState('')
@@ -54,6 +55,7 @@ const CreateNew = (props) => {
       info,
       votes: 0
     })
+    history.push('/')
   }
 
   return (
@@ -72,11 +74,10 @@ const CreateNew = (props) => {
           url for more info
           <input name='info' value={info} onChange={(e) => setInfo(e.target.value)} />
         </div>
-        <button>create</button>
+        <button type='submit'>create</button>
       </form>
     </div>
   )
-
 }
 
 const App = () => {
@@ -97,11 +98,16 @@ const App = () => {
     }
   ])
 
-  const [notification, setNotification] = useState('')
 
+
+  const [notification, setNotification] = useState('')
   const addNew = (anecdote) => {
     anecdote.id = (Math.random() * 10000).toFixed(0)
     setAnecdotes(anecdotes.concat(anecdote))
+    setNotification(`a new anecdote ${anecdote.content} has been created!`)
+    setTimeout(() => {
+      setNotification('')
+    }, 10000)
   }
 
   const anecdoteById = (id) =>
@@ -139,6 +145,7 @@ const App = () => {
           <Link to='/create' style={padding}>create new</Link>
           <Link to='/about' style={padding}>about</Link>
         </div>
+        {notification}
         <Switch>
           <Route path='/create'>
             <CreateNew addNew={addNew} />
@@ -159,4 +166,4 @@ const App = () => {
   )
 }
 
-export default App;
+export default App
