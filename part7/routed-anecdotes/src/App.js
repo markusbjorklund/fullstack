@@ -43,9 +43,9 @@ const Footer = () => (
 
 const CreateNew = (props) => {
   const history = useHistory()
-  const content = useField('text')
-  const author = useField('text')
-  const info = useField('text')
+  const { reset: resetContent, ...content } = useField('text')
+  const { reset: resetAuthor, ...author } = useField('text')
+  const { reset: resetInfo, ...info } = useField('text')
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -58,16 +58,10 @@ const CreateNew = (props) => {
     history.push('/')
   }
 
-  const handleReset = (e) => {
-    e.preventDefault()
-    content.reset()
-    author.reset()
-    info.reset()
-  }
-
-  const inputField = (object) => {
-    const { reset, ...passedValue } = object
-    return passedValue
+  const handleReset = () => {
+    resetContent()
+    resetAuthor()
+    resetInfo()
   }
 
   return (
@@ -76,15 +70,15 @@ const CreateNew = (props) => {
       <form onSubmit={handleSubmit} onReset={handleReset}>
         <div>
           content
-          <input {...inputField(content)} />
+          <input {...content} />
         </div>
         <div>
           author
-          <input name='author' {...inputField(author)} />
+          <input {...author} />
         </div>
         <div>
           url for more info
-          <input name='info' {...inputField(info)} />
+          <input {...info} />
         </div>
         <button type='submit'>create</button>
         <button type='reset'>reset</button>
