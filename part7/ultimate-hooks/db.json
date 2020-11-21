@@ -7,6 +7,10 @@
     {
       "content": "paras feature ikinä <3",
       "id": 2
+    },
+    {
+      "content": "Going to NY",
+      "id": 3
     }
   ],
   "persons": [
@@ -14,6 +18,11 @@
       "name": "mluukkai",
       "number": "040-5483923",
       "id": 1
+    },
+    {
+      "name": "Snake Plissken",
+      "number": "333-c00L",
+      "id": 2
     }
   ]
 }
