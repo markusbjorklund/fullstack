@@ -1,6 +1,14 @@
-import React from 'react' // eslint-disable-line no-unused-vars
+import React from 'react'
 import ReactDOM from 'react-dom'
-import App from './App' // eslint-disable-line no-unused-vars
+import { Provider } from 'react-redux'
+import App from './App'
+import store from './store'
+
 import './style.css'
 
-ReactDOM.render(<App />, document.getElementById('root'))
+ReactDOM.render(
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  document.getElementById('root')
+)

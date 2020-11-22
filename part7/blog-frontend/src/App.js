@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState, useEffect } from 'react'
 import Blog from './components/Blog'
 import Notification from './components/Notification'
 import BlogForm from './components/BlogForm'
@@ -6,14 +6,15 @@ import Toggleable from './components/Toggleable'
 import blogService from './services/blogs'
 import loginService from './services/login'
 import LoginForm from './components/LoginForm'
+import { useDispatch } from 'react-redux'
+import { setNotification } from './reducers/notificationReducer'
 
 const App = () => {
+  const dispatch = useDispatch()
   const [blogs, setBlogs] = useState([])
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
-  const [notification, setNotification] = useState(null)
   const [user, setUser] = useState(null)
-  const blogFormRef = useRef()
 
   useEffect(() => {
     blogService.getAll().then(blogs =>
@@ -31,10 +32,8 @@ const App = () => {
   }, [])
 
   const notifyWith = (message, type = 'success') => {
-    setNotification({ message, type })
-    setTimeout(() => {
-      setNotification(null)
-    }, 5000)
+    const notifyObject = { message, type }
+    dispatch(setNotification(notifyObject, 5))
   }
 
   const handleLogin = async (event) => {
@@ -54,7 +53,7 @@ const App = () => {
       setUser(user)
       setUsername('')
       setPassword('')
-    } catch (exception) {
+    } catch (error) {
       notifyWith('wrong username or password', 'error')
     }
   }
@@ -65,7 +64,6 @@ const App = () => {
   }
 
   const addBlog = (blogObject) => {
-    blogFormRef.current.toggleVisibility()
     blogService
       .create(blogObject)
       .then(updatedBlog => {
@@ -91,10 +89,7 @@ const App = () => {
         setBlogs(blogs.map(blog => blog.id !== updateBlog.id ? blog : updatedBlog))
       })
       .catch(error => {
-        notifyWith(`problem updating the blog, ${error}`)
-        setTimeout(() => {
-          setNotification(null)
-        }, 5000)
+        notifyWith(`problem updating the blog, ${error}`, 'error')
       })
   }
 
@@ -107,9 +102,6 @@ const App = () => {
         })
         .catch(error => {
           notifyWith(`${title} has already been deleted, ${error}`)
-          setTimeout(() => {
-            setNotification(null)
-          }, 5000)
         })
     }
   }
@@ -119,7 +111,7 @@ const App = () => {
   }
   return (
     <div>
-      <Notification notification={notification} />
+      <Notification />
       {user === null ?
         <LoginForm
           username={username}
@@ -132,7 +124,7 @@ const App = () => {
         <div>
           <h2>blogs</h2>
           <p>{user.name} logged in <input type='button' value='logout' onClick={handleLogOut} /></p>
-          <Toggleable buttonLabel="new blogpost" ref={blogFormRef}>
+          <Toggleable buttonLabel="new blogpost">
             <BlogForm createBlog={addBlog} />
           </Toggleable>
           {blogs.sort(sortedBlogs).map(blog =>
