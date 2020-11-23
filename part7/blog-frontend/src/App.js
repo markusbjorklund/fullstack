@@ -89,7 +89,7 @@ const App = () => {
       .create(blogObject)
       .then(updatedBlog => {
         setBlogs(blogs.concat(updatedBlog))
-        notifyWith(`A new blog by ${updatedBlog.title} by ${updatedBlog.author} has been added`)
+        notifyWith(`A new blog ${updatedBlog.title} by ${updatedBlog.author} has been added`)
       })
       .catch(error => {
         console.log(error)
