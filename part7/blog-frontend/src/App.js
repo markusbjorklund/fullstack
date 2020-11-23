@@ -1,15 +1,21 @@
 import React, { useState, useEffect } from 'react'
 import Blog from './components/Blog'
-import Notification from './components/Notification'
-import BlogForm from './components/BlogForm'
-import Toggleable from './components/Toggleable'
 import blogService from './services/blogs'
 import loginService from './services/login'
 import userService from './services/users'
+import BlogForm from './components/BlogForm'
 import LoginForm from './components/LoginForm'
+import Togglable from './components/Toggleable'
+import Notification from './components/Notification'
 import { useDispatch } from 'react-redux'
 import { setNotification } from './reducers/notificationReducer'
-import { Button } from 'react-bootstrap'
+
+import {
+  BrowserRouter as Router,
+  Switch, Route, Link
+} from 'react-router-dom'
+
+import { Table, Button } from 'react-bootstrap'
 
 const App = () => {
   const dispatch = useDispatch()
@@ -67,13 +73,14 @@ const App = () => {
       setUsername('')
       setPassword('')
     } catch (error) {
-      notifyWith('Wrong username or password', 'error')
+      notifyWith('Wrong username or password!', 'error')
     }
   }
 
   const handleLogOut = () => {
-    setUser(null)
     window.localStorage.removeItem('loggedBlogappUser')
+    setUser(null)
+    window.location = 'http://localhost:3000/'
   }
 
   const addBlog = (blogObject) => {
@@ -82,7 +89,7 @@ const App = () => {
       .create(blogObject)
       .then(updatedBlog => {
         setBlogs(blogs.concat(updatedBlog))
-        notifyWith(`A new blog ${blogObject.title} by ${blogObject.author} has been added`)
+        notifyWith(`A new blog by ${updatedBlog.title} by ${updatedBlog.author} has been added`)
       })
       .catch(error => {
         console.log(error)
@@ -90,7 +97,7 @@ const App = () => {
   }
 
   const addLike = (id) => {
-    const updateBlog = blogs.find(blog => blog.id === id)
+    const updateBlog = blogs.find(b => b.id === id)
     const setBlog = {
       user: updateBlog.user.id,
       likes: (updateBlog.likes + 1),
@@ -133,36 +140,99 @@ const App = () => {
     />
   )
 
-  const listBlogs = () => (
+  const blogForm = () => (
+    <Togglable buttonLabel='Create new blogpost' ref={blogFormRef}>
+      <BlogForm createBlog={addBlog} />
+    </Togglable>
+  )
+
+  const NavBar = () => (
     <>
-      <h2>Blogs</h2>
-      <p>{user.name} logged in <Button variant='warning' onClick={handleLogOut}>Logout</Button></p>
-      <Toggleable buttonLabel="New blogpost" ref={blogFormRef}>
-        <BlogForm createBlog={addBlog} />
-      </Toggleable>
-      {blogs.sort(sortedBlogs).map(blog =>
-        <Blog
-          key={blog.id}
-          blog={blog}
-          addLike={() => addLike(blog.id)}
-          user={user}
-          deleteBlog={deleteBlog}
-        />
-      )}
+      <Link style={rightSpace} to="/"><b>Start</b></Link>
+      <Link style={rightSpace} to="/users"><b>Users</b></Link>
+      <a style={rightSpace} href="http://shorturl.at/EJRZ6"><b>Superusers</b></a>
+      {user.name} logged in <Button variant="warning" onClick={handleLogOut}>Log out</Button>
     </>
   )
-  const sortedBlogs = (a, b) => {
+
+  const sortByLike = (a, b) => {
     return b.likes - a.likes
   }
 
+  const sortByBlogs = (a, b) => {
+    return b.blogs.length - a.blogs.length
+  }
+
+  const rightSpace = {
+    marginRight: 10
+  }
+
+  const listBlogs = () => (
+    <div className="container">
+      <NavBar />
+      <h2>Blogs</h2>
+      <div>{blogForm()}</div>
+      <>
+        {blogs.sort(sortByLike).map(blog =>
+          <Blog
+            key={blog.id}
+            blog={blog}
+            addLike={() => addLike(blog.id)}
+            user={user}
+            deleteBlog={deleteBlog}
+          />
+        )}
+      </>
+    </div>
+  )
+  const ListUsers = () => (
+    <div>
+      <Table striped>
+        <tbody>
+          <tr><td><strong>Name</strong></td><td><strong>Blogs created</strong></td></tr>
+          {users.sort(sortByBlogs).map(user =>
+            <tr key={user.id}>
+              <td>{user.name}</td><td>{user.blogs.length}</td>
+            </tr>
+          )}
+        </tbody>
+      </Table>
+    </div>
+  )
+
+  const showUsers = () => (
+    <div className="container">
+      <NavBar />
+      <h2>Users</h2>
+      <ListUsers />
+    </div>
+  )
+
+  const Users = () => (
+    <div>
+      {user === null ?
+        loginForm() :
+        showUsers()
+      }
+    </div>
+  )
+
   return (
     <div className="container">
-      <Notification />
-      {user === null ?
-        loginForm()
-        :
-        listBlogs()
-      }
+      <Router>
+        <Notification />
+        <Switch>
+          <Route path="/users">
+            <Users />
+          </Route>
+          <Route path="/">
+            {user === null ?
+              loginForm() :
+              listBlogs()
+            }
+          </Route>
+        </Switch>
+      </Router>
     </div>
   )
 }
