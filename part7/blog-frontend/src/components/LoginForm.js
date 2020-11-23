@@ -15,23 +15,27 @@ const LoginForm = ({
       <Form onSubmit={handleLogin}>
         <Form.Group>
           <Form.Label>Username</Form.Label>
-          <input
-            id='username'
-            type="text"
-            value={username}
-            name="Username"
-            onChange={handleUsernameChange}
-          />
+          <div>
+            <input
+              id='username'
+              type="text"
+              value={username}
+              name="Username"
+              onChange={handleUsernameChange}
+            />
+          </div>
         </Form.Group>
         <Form.Group>
           <Form.Label>Password</Form.Label>
-          <input
-            id='password'
-            type="password"
-            value={password}
-            name="Password"
-            onChange={handlePasswordChange}
-          />
+          <div>
+            <input
+              id='password'
+              type="password"
+              value={password}
+              name="Password"
+              onChange={handlePasswordChange}
+            />
+          </div>
         </Form.Group>
         <Form.Group>
           <Button id='login-button' type="submit">Login</Button>

@@ -20,11 +20,11 @@ const BlogForm = ({ createBlog }) => {
   }
 
   return (
-    <div className="container">
+    <div>
       <h3>Create new blogpost</h3>
       <Form onSubmit={addBlog}>
         <Form.Group>
-          <Form.Label>Title:</Form.Label>
+          <Form.Label>Title</Form.Label>
           <div>
             <input
               id='title'
@@ -36,7 +36,7 @@ const BlogForm = ({ createBlog }) => {
           </div>
         </Form.Group>
         <Form.Group>
-          <Form.Label>Author:</Form.Label>
+          <Form.Label>Author</Form.Label>
           <div>
             <input
               id='author'
@@ -48,7 +48,7 @@ const BlogForm = ({ createBlog }) => {
           </div>
         </Form.Group>
         <Form.Group>
-          <Form.Label>Url:</Form.Label>
+          <Form.Label>Url</Form.Label>
           <div>
             <input
               id='url'

@@ -16,12 +16,14 @@ const Blog = ({ blog, addLike, user, deleteBlog }) => {
   }
 
   const blogStyle = {
-    paddingTop: 10,
-    paddingLeft: 2,
-    border: 'solid',
+    padding: 10,
+    border: 'dashed',
     borderWidth: 1,
-    marginBottom: 5
+    borderColor: 'lightgrey',
+    marginBottom: 20,
+    marginTop: 20
   }
+
   return (
     <div style={blogStyle} className="container">
       <div style={hideViewAll} className='blog hidden'>

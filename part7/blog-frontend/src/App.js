@@ -17,6 +17,8 @@ const App = () => {
   const [password, setPassword] = useState('')
   const [user, setUser] = useState(null)
 
+  const blogFormRef = React.createRef()
+
   useEffect(() => {
     blogService.getAll().then(blogs =>
       setBlogs(blogs)
@@ -65,11 +67,15 @@ const App = () => {
   }
 
   const addBlog = (blogObject) => {
+    blogFormRef.current.toggleVisibility()
     blogService
       .create(blogObject)
       .then(updatedBlog => {
         setBlogs(blogs.concat(updatedBlog))
         notifyWith(`A new blog ${blogObject.title} by ${blogObject.author} has been added`)
+      })
+      .catch(error => {
+        console.log(error)
       })
   }
 
@@ -107,37 +113,46 @@ const App = () => {
     }
   }
 
+  const loginForm = () => (
+    <LoginForm
+      username={username}
+      password={password}
+      handleUsernameChange={({ target }) => setUsername(target.value)}
+      handlePasswordChange={({ target }) => setPassword(target.value)}
+      handleLogin={handleLogin}
+    />
+  )
+
+  const listBlogs = () => (
+    <>
+      <h2>Blogs</h2>
+      <p>{user.name} logged in <Button variant='warning' onClick={handleLogOut}>Logout</Button></p>
+      <Toggleable buttonLabel="New blogpost">
+        <BlogForm createBlog={addBlog} />
+      </Toggleable>
+      {blogs.sort(sortedBlogs).map(blog =>
+        <Blog
+          key={blog.id}
+          blog={blog}
+          addLike={() => addLike(blog.id)}
+          user={user}
+          deleteBlog={deleteBlog}
+        />
+      )}
+    </>
+  )
+
   const sortedBlogs = (a, b) => {
     return b.likes - a.likes
   }
+
   return (
-    <div>
+    <div className="container">
       <Notification />
       {user === null ?
-        <LoginForm
-          username={username}
-          password={password}
-          handleUsernameChange={({ target }) => setUsername(target.value)}
-          handlePasswordChange={({ target }) => setPassword(target.value)}
-          handleLogin={handleLogin}
-        />
+        loginForm()
         :
-        <div className="container">
-          <h2>Blogs</h2>
-          <p>{user.name} logged in <Button variant='warning' onClick={handleLogOut}>Logout</Button></p>
-          <Toggleable buttonLabel="New blogpost">
-            <BlogForm createBlog={addBlog} />
-          </Toggleable>
-          {blogs.sort(sortedBlogs).map(blog =>
-            <Blog
-              key={blog.id}
-              blog={blog}
-              addLike={() => addLike(blog.id)}
-              user={user}
-              deleteBlog={deleteBlog}
-            />
-          )}
-        </div>
+        listBlogs()
       }
     </div>
   )
