@@ -218,7 +218,7 @@ https://centria.github.io/fullstack/#course-feedback
 - [x] 7.6
 - [x] 7.7
 - [x] 7.8
-- [ ] 7.9
+- [x] 7.9
 - [ ] 7.10
 - [ ] 7.11
 - [ ] 7.12
@@ -228,8 +228,8 @@ https://centria.github.io/fullstack/#course-feedback
 - [ ] 7.16
 - [ ] 7.17
 - [ ] 7.18
-- [ ] 7.19
-- [ ] 7.20
+- [x] 7.19
+- [x] 7.20
 - [ ] 7.21
 
 ## Part 8
