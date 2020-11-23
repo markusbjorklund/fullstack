@@ -1,15 +1,15 @@
 const reducer = (state = null, action) => {
   switch (action.type) {
-    case 'SET_NOTIFICATION':
-      return action.content
-    case 'CLEAR_NOTIFICATION':
-      return null
-    default: 
-      return state
+  case 'SET_NOTIFICATION':
+    return action.content
+  case 'CLEAR_NOTIFICATION':
+    return null
+  default:
+    return state
   }
 }
 
-let timeoutId 
+let timeoutId
 
 export const setNotification = (content, time) => {
   return async dispatch => {

@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Button } from 'react-bootstrap'
 
 const Blog = ({ blog, addLike, user, deleteBlog }) => {
   const [viewAll, setViewAll] = useState(false)
@@ -22,16 +23,16 @@ const Blog = ({ blog, addLike, user, deleteBlog }) => {
     marginBottom: 5
   }
   return (
-    <div style={blogStyle}>
+    <div style={blogStyle} className="container">
       <div style={hideViewAll} className='blog hidden'>
-        {blog.title} by {blog.author} <button id='view-button' onClick={() => setViewAll(true)}>view</button>
+        {blog.title} by {blog.author} <Button variant='success' id='view-button' onClick={() => setViewAll(true)}>view</Button>
       </div>
       <div style={showViewAll} className='visible'>
-        {blog.title} by {blog.author} <button id='hide-button' onClick={() => setViewAll(false)}>hide</button>
-        <p>{blog.url}</p>
-        <p>likes {blog.likes} <button id='like-button' onClick={addLike}>like</button></p>
+        {blog.title} by {blog.author} <Button variant='secondary' id='hide-button' onClick={() => setViewAll(false)}>hide</Button>
+        <p><a href={blog.url}>{blog.url}</a></p>
+        <p>likes {blog.likes} <Button variant='primary' id='like-button' onClick={addLike}>like</Button></p>
         <p>{blog.user.name}</p>
-        <button id='delete-button' style={showRemoveButton} onClick={removeBlog}>remove</button>
+        <Button variant='danger' id='delete-button' style={showRemoveButton} onClick={removeBlog}>remove</Button>
       </div>
     </div>
   )

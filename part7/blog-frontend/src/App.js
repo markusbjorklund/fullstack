@@ -8,6 +8,7 @@ import loginService from './services/login'
 import LoginForm from './components/LoginForm'
 import { useDispatch } from 'react-redux'
 import { setNotification } from './reducers/notificationReducer'
+import { Button } from 'react-bootstrap'
 
 const App = () => {
   const dispatch = useDispatch()
@@ -54,7 +55,7 @@ const App = () => {
       setUsername('')
       setPassword('')
     } catch (error) {
-      notifyWith('wrong username or password', 'error')
+      notifyWith('Wrong username or password', 'error')
     }
   }
 
@@ -68,7 +69,7 @@ const App = () => {
       .create(blogObject)
       .then(updatedBlog => {
         setBlogs(blogs.concat(updatedBlog))
-        notifyWith(`a new blog ${blogObject.title} by ${blogObject.author} added`)
+        notifyWith(`A new blog ${blogObject.title} by ${blogObject.author} has been added`)
       })
   }
 
@@ -89,7 +90,7 @@ const App = () => {
         setBlogs(blogs.map(blog => blog.id !== updateBlog.id ? blog : updatedBlog))
       })
       .catch(error => {
-        notifyWith(`problem updating the blog, ${error}`, 'error')
+        notifyWith(`Problem updating the blog, ${error}`, 'error')
       })
   }
 
@@ -121,10 +122,10 @@ const App = () => {
           handleLogin={handleLogin}
         />
         :
-        <div>
-          <h2>blogs</h2>
-          <p>{user.name} logged in <input type='button' value='logout' onClick={handleLogOut} /></p>
-          <Toggleable buttonLabel="new blogpost">
+        <div className="container">
+          <h2>Blogs</h2>
+          <p>{user.name} logged in <Button variant='warning' onClick={handleLogOut}>Logout</Button></p>
+          <Toggleable buttonLabel="New blogpost">
             <BlogForm createBlog={addBlog} />
           </Toggleable>
           {blogs.sort(sortedBlogs).map(blog =>

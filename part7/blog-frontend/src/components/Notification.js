@@ -13,7 +13,6 @@ const Notification = () => {
     borderRadius: 5,
     padding: 10,
     color: notification.type === 'success' ? 'green' : 'red',
-    background: 'lightgrey'
   }
 
   return <div style={style}>
