@@ -59,7 +59,7 @@ const BlogForm = ({ createBlog }) => {
             />
           </div>
         </Form.Group>
-        <Button id='create-button' type="submit">Create</Button>
+        <Button variant='success' id='create-button' type="submit">Create</Button>
       </Form>
     </div>
   )

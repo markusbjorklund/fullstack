@@ -8,7 +8,7 @@ const Blog = ({ blog, addLike, user, deleteBlog }) => {
 
   let showRemoveButton = { display: 'none' }
   if (user.name === blog.user.name) {
-    showRemoveButton = { display: '', color: 'white', background: 'red' }
+    showRemoveButton = { display: '' }
   }
 
   const removeBlog = () => {
@@ -27,14 +27,14 @@ const Blog = ({ blog, addLike, user, deleteBlog }) => {
   return (
     <div style={blogStyle} className="container">
       <div style={hideViewAll} className='blog hidden'>
-        {blog.title} by {blog.author} <Button variant='success' id='view-button' onClick={() => setViewAll(true)}>view</Button>
+        {blog.title} by {blog.author} <Button variant='info' id='view-button' onClick={() => setViewAll(true)}>View</Button>
       </div>
       <div style={showViewAll} className='visible'>
-        {blog.title} by {blog.author} <Button variant='secondary' id='hide-button' onClick={() => setViewAll(false)}>hide</Button>
+        {blog.title} by {blog.author} <Button variant='secondary' id='hide-button' onClick={() => setViewAll(false)}>Hide</Button>
         <p><a href={blog.url}>{blog.url}</a></p>
-        <p>likes {blog.likes} <Button variant='primary' id='like-button' onClick={addLike}>like</Button></p>
+        <p>likes {blog.likes} <Button variant='primary' id='like-button' onClick={addLike}>Like</Button></p>
         <p>{blog.user.name}</p>
-        <Button variant='danger' id='delete-button' style={showRemoveButton} onClick={removeBlog}>remove</Button>
+        <Button variant='danger' id='delete-button' style={showRemoveButton} onClick={removeBlog}>Remove</Button>
       </div>
     </div>
   )

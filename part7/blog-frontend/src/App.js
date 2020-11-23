@@ -5,6 +5,7 @@ import BlogForm from './components/BlogForm'
 import Toggleable from './components/Toggleable'
 import blogService from './services/blogs'
 import loginService from './services/login'
+import userService from './services/users'
 import LoginForm from './components/LoginForm'
 import { useDispatch } from 'react-redux'
 import { setNotification } from './reducers/notificationReducer'
@@ -13,6 +14,7 @@ import { Button } from 'react-bootstrap'
 const App = () => {
   const dispatch = useDispatch()
   const [blogs, setBlogs] = useState([])
+  const [users, setUsers] = useState([])
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const [user, setUser] = useState(null)
@@ -33,6 +35,14 @@ const App = () => {
       blogService.setToken(user.token)
     }
   }, [])
+
+  useEffect(() => {
+    userService.getAllUsers().then(users =>
+      setUsers(users)
+    )
+  }, [])
+
+  console.log('Get all the users', users)
 
   const notifyWith = (message, type = 'success') => {
     const notifyObject = { message, type }
@@ -141,7 +151,6 @@ const App = () => {
       )}
     </>
   )
-
   const sortedBlogs = (a, b) => {
     return b.likes - a.likes
   }
