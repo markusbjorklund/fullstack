@@ -127,7 +127,7 @@ const App = () => {
     <>
       <h2>Blogs</h2>
       <p>{user.name} logged in <Button variant='warning' onClick={handleLogOut}>Logout</Button></p>
-      <Toggleable buttonLabel="New blogpost">
+      <Toggleable buttonLabel="New blogpost" ref={blogFormRef}>
         <BlogForm createBlog={addBlog} />
       </Toggleable>
       {blogs.sort(sortedBlogs).map(blog =>
