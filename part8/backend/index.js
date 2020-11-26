@@ -113,7 +113,7 @@ const resolvers = {
     allBooks: (root, args) => {
       let filterBooks = books
 
-      if(args.author && args.genre) {
+      if (args.author && args.genre) {
         filterBooks = filterBooks.filter(book => book.author === args.author && book.genres.includes(args.genre))
       } else {
         if (args.author) {
@@ -122,9 +122,9 @@ const resolvers = {
         if (args.genre) {
           filterBooks = filterBooks.filter(book => book.genres.includes(args.genre))
         }
-          return filterBooks
+        return filterBooks
       }
-  },
+    },
     allAuthors: () => {
       return authors.map(author => {
         const bookCount = books.filter(book => book.author === author.name).length
@@ -135,10 +135,10 @@ const resolvers = {
 }
 
 const server = new ApolloServer({
-    typeDefs,
-    resolvers,
-  })
+  typeDefs,
+  resolvers,
+})
 
 server.listen().then(({ url }) => {
-    console.log(`Server ready at ${url}`)
-  })
+  console.log(`Server ready at ${url}`)
+})
