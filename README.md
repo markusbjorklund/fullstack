@@ -230,7 +230,7 @@ https://centria.github.io/fullstack/#course-feedback
 - [ ] 7.18
 - [x] 7.19
 - [x] 7.20
-- [ ] 7.21
+- [x] 7.21
 
 ## Part 8
 
