@@ -148,9 +148,8 @@ const App = () => {
 
   const NavBar = () => (
     <>
-      <Link style={rightSpace} to="/"><b>Start</b></Link>
+      <Link style={rightSpace} to="/"><b>Blogs</b></Link>
       <Link style={rightSpace} to="/users"><b>Users</b></Link>
-      <a style={rightSpace} href="http://shorturl.at/EJRZ6"><b>Superusers</b></a>
       {user.name} logged in <Button variant="warning" onClick={handleLogOut}>Log out</Button>
     </>
   )
