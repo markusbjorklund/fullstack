@@ -250,9 +250,9 @@ https://centria.github.io/fullstack/#course-feedback
 
 https://fullstackopen.com/en/part8
 
-- [ ] 8.1
-- [ ] 8.2
-- [ ] 8.3
+- [x] 8.1
+- [x] 8.2
+- [x] 8.3
 - [ ] 8.4
 - [ ] 8.5
 - [ ] 8.6
