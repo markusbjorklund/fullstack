@@ -85,6 +85,8 @@ https://fullstackopen.com/en/part2
 - [x] 2.19
 - [x] 2.20
 
+**Submitted** :rocket:
+
 ## Part 3
 
 #### Programming a server with NodeJS and Express
@@ -116,6 +118,8 @@ Repo for part 3: https://github.com/markusbjorklund/fullstack-part3
 - [x] 3.21
 - [x] 3.22
 
+**Submitted** :rocket:
+
 ## Part 4
 
 #### Testing Express servers, user administration
@@ -144,6 +148,8 @@ https://fullstackopen.com/en/part4
 - [x] 4.20
 - [x] 4.21
 - [ ] 4.22 :exclamation:
+
+**Submitted** :rocket:
 
 ## Part 5
 
@@ -174,6 +180,8 @@ https://fullstackopen.com/en/part5
 - [x] 5.21
 - [x] 5.22
 
+**Submitted** :rocket:
+
 ## Part 6
 
 #### State management with Redux
@@ -201,6 +209,8 @@ https://fullstackopen.com/en/part6
 - [x] 6.19
 - [x] 6.20
 - [x] 6.21
+
+**Submitted** :rocket:
 
 ## Part 7
 
@@ -231,6 +241,8 @@ https://centria.github.io/fullstack/#course-feedback
 - [x] 7.19
 - [x] 7.20
 - [x] 7.21
+
+**Submitted** :rocket:
 
 ## Part 8
 
