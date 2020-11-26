@@ -16,11 +16,11 @@ let authors = [
     id: "afa5b6f1-344d-11e9-a414-719c6709cf3e",
     born: 1821
   },
-  { 
+  {
     name: 'Joshua Kerievsky', // birthyear not known
     id: "afa5b6f2-344d-11e9-a414-719c6709cf3e",
   },
-  { 
+  {
     name: 'Sandi Metz', // birthyear not known
     id: "afa5b6f3-344d-11e9-a414-719c6709cf3e",
   },
@@ -59,7 +59,7 @@ let books = [
     author: 'Joshua Kerievsky',
     id: "afa5de01-344d-11e9-a414-719c6709cf3e",
     genres: ['refactoring', 'patterns']
-  },  
+  },
   {
     title: 'Practical Object-Oriented Design, An Agile Primer Using Ruby',
     published: 2012,
@@ -92,26 +92,39 @@ const typeDefs = gql`
     genres: [String!]!
   }
 
+  type Author {
+    name: String!
+    id: ID!
+    born: Int
+    bookCount: Int!
+  }
+
   type Query {
     bookCount: Int!,
     authorCount: Int!,
-    allBooks: [Book]!
+    allBooks: [Book]!,
+    allAuthors: [Author]!
   }
 `
-
 const resolvers = {
   Query: {
     bookCount: () => books.length,
     authorCount: () => authors.length,
-    allBooks: () => books
+    allBooks: () => books,
+    allAuthors: () => {
+      return authors.map(author => {
+        const bookCount = books.filter(book => book.author === author.name).length
+        return { ...author, bookCount }
+      })
+    }
   }
 }
 
 const server = new ApolloServer({
-  typeDefs,
-  resolvers,
-})
+    typeDefs,
+    resolvers,
+  })
 
 server.listen().then(({ url }) => {
-  console.log(`Server ready at ${url}`)
-})
+    console.log(`Server ready at ${url}`)
+  })
